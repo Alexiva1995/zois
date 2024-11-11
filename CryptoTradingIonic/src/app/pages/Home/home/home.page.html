@@ -1,0 +1,119 @@
+<ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar color="bg" style="padding: 0px 15px;--border-width: 0 0;padding-top: 10px;">
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-img src="../../../../assets/image/Logo.png" style="height: 18px;width: 24px;"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main-content" [fullscreen]="true">
+  <div style="padding-left: 18px;padding-top: 15px;padding-bottom: 15px;">
+
+    <ion-text class="b14" style="color: var(--ion-color-icon);">Wallet</ion-text>
+    <div class="list" style="margin-top: 7px;justify-content: space-between;">
+      <ion-text class="apptitle">$<ion-text class="title">2,564</ion-text><ion-text class="apptitle">.95</ion-text></ion-text>
+      <ion-img id="open-custom-dialog1" src="../../../../assets/image/s5.png" style="height: 47px;width: 47px;margin-right: 15px;"></ion-img>
+    </div>
+    <div class="lines" style="margin: 15px 0;margin-bottom: 20px;"></div>
+    <ion-text class="b14" style="color: var(--ion-color-icon);">My Investments</ion-text>
+    <div class="scroll" style="flex-direction: row;align-items: center;display: flex;margin: 20px 0;">
+      <div style="display: flex;flex-direction: column;">
+        <div class="lines1" style="width: 220px;"></div>
+        <div style="background-color: var(--ion-color-box);padding-top: 15px;padding-left: 15px;">
+          <ion-text class="m12" style="color: var(--ion-color-txt);">Bitcoin</ion-text>
+          <div class="list" style="margin-top: 15px;justify-content: space-between;">
+            <div style="flex-direction: column;display: flex;">
+              <ion-text class="b14">$<ion-text class="apptitle">1534</ion-text><ion-text class="b14">.56</ion-text></ion-text>
+              <div style="margin-top: 3px;">
+                <ion-text class="m12" style="color: var(--ion-color-icon);">0.022534</ion-text>
+              </div>
+            </div>
+            <div style="margin-bottom: -4px;">
+              <ion-img src="../../../../assets/image/s6.png" style="height: 120px;width: 90px;"></ion-img>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex;flex-direction: column;margin-left: 10px;margin-right: 10px;">
+        <div class="lines1" style="width: 220px;"></div>
+        <div style="width: 220px;background-color: var(--ion-color-box);padding-top: 15px;padding-left: 15px;">
+          <ion-text class="m12" style="color: var(--ion-color-txt);">Litecoin</ion-text>
+          <div class="list" style="margin-top: 15px;justify-content: space-between;">
+            <div style="flex-direction: column;display: flex;">
+              <ion-text class="b14">$<ion-text class="apptitle">192</ion-text><ion-text class="b14">.42</ion-text></ion-text>
+              <div style="margin-top: 3px;">
+                <ion-text class="m12" style="color: var(--ion-color-icon);">0.0129082</ion-text>
+              </div>
+            </div>
+            <div style="margin-bottom: -4px;">
+              <ion-img src="../../../../assets/image/s6.png" style="height: 120px;width: 90px;"></ion-img>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ion-text class="b14" style="color: var(--ion-color-icon);">Recent transactions</ion-text>
+    <div style="padding: 15px;background-color: var(--ion-color-box);margin-top: 15px;margin-bottom: 50px;">
+      <div class="list">
+        <ion-img src="../../../../assets/image/s8.png" style="height: 42px;width: 42px;"></ion-img>
+        <div style="flex-direction: column;display: flex;margin-left: 10px;flex: 1;">
+          <ion-text class="m12" >Apple Music</ion-text>
+          <div>
+            <ion-text class="m10" style="color: #fff;">Subscription</ion-text>
+          </div>
+        </div>
+        <ion-text class="b14" style="color: var(--ion-color-icon);" >-$19</ion-text>
+      </div>
+      <div class="lines" style="margin-top: 15px;margin-left: 52px;background-color: #2E3546;"></div>
+      <div class="list" style="margin-top: 15px;">
+        <ion-img src="../../../../assets/image/s9.png" style="height: 42px;width: 42px;"></ion-img>
+        <div style="flex-direction: column;display: flex;margin-left: 10px;flex: 1;">
+          <ion-text class="m12" >Books</ion-text>
+          <div>
+            <ion-text class="m10" style="color: #fff;">Team Accounts</ion-text>
+          </div>
+        </div>
+        <ion-text class="b14" style="color: var(--ion-color-icon);" >-$89</ion-text>
+      </div>
+      <div class="lines" style="margin-top: 15px;margin-left: 52px;background-color: #2E3546;"></div>
+      <div class="list" style="margin-top: 15px;">
+        <ion-img src="../../../../assets/image/s10.png" style="height: 42px;width: 42px;"></ion-img>
+        <div style="flex-direction: column;display: flex;margin-left: 10px;flex: 1;">
+          <ion-text class="m12" >Flight</ion-text>
+          <div>
+            <ion-text class="m10" style="color: #fff;">S7 Airline</ion-text>
+          </div>
+        </div>
+        <ion-text class="b14" style="color: var(--ion-color-icon);" >-$514.9</ion-text>
+      </div>
+    </div>
+
+    <ion-modal id="example-modal" #modal trigger="open-custom-dialog1">
+      <ng-template>
+        <div class="wrapper">
+          <div (click)="close()" style="display: flex;align-items: flex-end;flex-direction: column;">
+           <ion-icon name="close" style="font-size: 21px;color:var(--ion-color-icon);"></ion-icon>
+          </div>
+          <div style="display: flex;align-items: center;flex-direction: column;margin-top: 5px;">
+            <ion-img  src="../../../../assets/image/s33.png" style="height: 47px;width: 47px;"></ion-img>
+          </div>
+  
+          <div class="ion-text-center" style="margin-top: 20px;">
+            <ion-text class="m14" >Received 0.29381 BTC<br> from John Doe</ion-text>
+          </div>
+          <div class="lines" style="margin: 15px 0;"></div>
+          <ion-text class="m10" style="color: var(--ion-color-icon);">NOTE</ion-text>
+          <div  style="margin-top: 5px;">
+            <ion-text class="m14" >Thanks for the trip!</ion-text>
+          </div>
+          <div class="list1" style="margin-top: 15px;">
+            <ion-text class="m10" style="color: var(--ion-color-icon);">12:00 Nov 15 2018</ion-text>
+            <ion-text class="m10" style="color: var(--ion-color-icon);">Completed</ion-text>
+          </div>
+    
+        </div>
+      </ng-template>
+    </ion-modal>
+
+  </div>
+</ion-content>

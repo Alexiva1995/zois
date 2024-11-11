@@ -1,0 +1,21 @@
+
+
+<ion-content [fullscreen]="true" class="bg" >
+  
+  <div class="ion-text-center" style="margin-top: 50px;">
+    <ion-text class="b14" >Enter PIN-Code</ion-text>
+  </div>
+  <div style="margin-top:40px;justify-content: center;display: flex;margin-bottom: 30px;">
+    <ng-otp-input #ngOtpInput
+      (onInputChange)="onOtpChange($event)"
+      [config]="otpConfig">
+    </ng-otp-input>
+  </div>
+  <div class="ion-text-center" >
+    <ion-text class="b14" style="color: var(--ion-color-icon);">Forgot?</ion-text>
+  </div>
+
+  <ion-button routerLink="/tabs/setting"  expand="block" style="margin: 20px;">Next</ion-button>
+
+ 
+</ion-content>

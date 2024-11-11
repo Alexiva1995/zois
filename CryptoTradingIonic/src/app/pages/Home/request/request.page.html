@@ -1,0 +1,54 @@
+<ion-header [translucent]="false" style="box-shadow: none;">
+  <ion-toolbar color="bg" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
+    <ion-buttons slot="start" routerLink="/tabs">
+      <ion-icon name="arrow-back-outline" style="font-size: 24px;" ></ion-icon>
+    </ion-buttons>
+    <ion-label class="b14" style="text-align: center;display: block;">Request Payment</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" color="bg">
+
+  <div style="margin-top: 50px;margin-bottom: 30px;">
+    <ion-img src="../../../../assets/image/a9.png" style="width: 100%;height: 170px;"></ion-img>
+  </div>
+
+  <div class="ion-text-center" style="margin-bottom: 50px;">
+    <ion-text class="b14" style="color: var(--ion-color-txt);">12OlPju8xoWi380askpoqlSLx2a012kkn</ion-text>
+  </div>
+
+  <div class="list">
+    <div style="flex: 1;">
+      <ion-text class="b14" style="color: var(--ion-color-icon);">BTC</ion-text>
+      <div class="input"  color="bg">
+        <ion-input type="txt" placeholder="0.2" ></ion-input>
+      </div>
+    </div>
+    <div style="flex: 1;margin-left: 20px;">
+      <ion-text class="b14" style="color: var(--ion-color-icon);">USD</ion-text>
+      <div class="input"  color="bg">
+        <ion-input type="email" placeholder="$1,920.78" ></ion-input>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <ion-text class="b14" style="color: var(--ion-color-icon);">TO</ion-text>
+  </div>
+
+  <div class="box list" style="padding: 15px 15px;margin-top: 20px;margin-right: 0;margin-left: 0;margin-bottom: 30px;">
+    <ion-img src="../../../../assets/image/a6.png" style="height: 56px;width: 56px;"></ion-img>
+    <div  style="margin-left: 15px;flex:1">
+      <div>
+        <ion-text class="b14">Bitcoin</ion-text>
+        <div>
+          <ion-text class="b12" style="color: var(--ion-color-icon);">BTC</ion-text>
+        </div>
+      </div>
+    </div>
+    <ion-icon name="chevron-forward-outline" color="icon" style="font-size: 21px;"></ion-icon>
+  </div>
+
+  <ion-button routerLink="/tabs" expand="block" style="margin: 20px 0;">Request Payment</ion-button>
+
+</ion-content>

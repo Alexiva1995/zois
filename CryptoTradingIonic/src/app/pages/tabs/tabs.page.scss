@@ -1,0 +1,23 @@
+ion-tabs {
+
+    // --------------Custom Semi Transparent & Rounded Tabs----------------------
+    ion-tab-bar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;        
+        --background:var(--ion-color-bg);
+        border-top: 2px solid var(--ion-color-border);
+        
+        ion-tab-button {
+            --background: var(--ion-color-bg);
+            --color: var(--ion-color-disable);
+            // --color-selected: var(--ion-color-primary);
+            ion-icon {
+                font-size: 1.5rem;
+            }
+           
+        }
+
+    }
+
+}

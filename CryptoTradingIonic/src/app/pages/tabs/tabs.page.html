@@ -1,0 +1,28 @@
+<ion-tabs #tabs (ionTabsDidChange)="setCurrentTab()" >
+
+  <!-- -------------------Custom Tabs with fab button------------------------------- -->
+  <!-- <ion-fab vertical="bottom" horizontal="center" translucent="true">
+    <ion-fab-button routerLink="/uploadid">
+      <ion-img src="../../../../assets/image/t13.png" style="height: 42px;width: 55px;"></ion-img>
+    </ion-fab-button>
+  </ion-fab> -->
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button tab="candles" >
+      <ion-icon name="briefcase" [color]="selectTab == 'candles' ? 'txt' : 'icon' " style="font-size: 21px;"></ion-icon>      
+      <!-- Home -->
+    </ion-tab-button>
+    
+    <ion-tab-button tab="stock" >
+      <ion-icon name="pie-chart" [color]="selectTab == 'stock' ? 'txt' : 'icon' " style="font-size: 21px;"></ion-icon>
+      <!-- stock -->
+    </ion-tab-button>
+
+    <ion-tab-button tab="setting">
+      <ion-img [src]=" selectTab == 'setting' ? '../../../../assets/image/a13p.png' : '../../../../assets/image/a13.png' " style="height: 21px;width: 21px;"></ion-img>
+      <!-- setting -->
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>

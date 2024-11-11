@@ -1,0 +1,38 @@
+<ion-header [translucent]="false" style="box-shadow: none;">
+  <ion-toolbar color="bg" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
+    <ion-buttons slot="start" routerLink="/tabs/setting">
+      <ion-icon name="arrow-back-outline" style="font-size: 24px;" ></ion-icon>
+    </ion-buttons>
+    <ion-label class="b14" style="text-align: center;display: block;">  User Profile</ion-label>
+    <ion-icon name="search" slot="end" style="font-size: 21px;"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" color="bg">
+
+   <ion-text class="b14" style="color: var(--ion-color-icon);">Name</ion-text>
+    <div class="input"  color="bg">
+      <ion-input type="txt" placeholder="Denis" ></ion-input>
+    </div>
+
+    <ion-text class="b14" style="color: var(--ion-color-icon);">E-Mail</ion-text>
+    <div class="input"  color="bg">
+      <ion-input type="email" placeholder="denisabdullin@gmail.com" ></ion-input>
+    </div>
+
+    <div class="list1" style="margin-top: 20px;">
+      <ion-text class="m14">Change password</ion-text>
+      <ion-icon name="chevron-forward-outline" color="icon" style="font-size: 21px;"></ion-icon>
+    </div>
+  
+    <div class="lines" style="background-color: #1A202E;margin: 15px 0;"></div>
+  
+    <div class="list1">
+      <ion-text class="m14">Delete account</ion-text>
+      <ion-icon name="chevron-forward-outline" color="icon" style="font-size: 21px;"></ion-icon>
+    </div>
+  
+    <div class="lines" style="background-color: #1A202E;margin: 15px 0;"></div>
+  
+
+</ion-content>

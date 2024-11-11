@@ -1,0 +1,61 @@
+<ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar
+    color="bg"
+    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+  >
+    <ion-buttons slot="start" routerLink="/welcome2">
+      <ion-icon name="arrow-back-outline" style="font-size: 24px"></ion-icon>
+    </ion-buttons>
+    <ion-label routerLink="/signup" class="b14" slot="end">Sign Up</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" color="bg">
+  <ion-text class="title" style="margin-top: 20px">Iniciar Sesión</ion-text>
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-item
+      [ngClass]="{
+        'input-error': loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+      }"
+    >
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item
+      [ngClass]="{
+        'input-error': loginForm.get('password')?.invalid && loginForm.get('password')?.touched
+      }"
+    >
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" color="primary" [disabled]="!loginForm.valid">
+      Iniciar Sesión
+    </ion-button>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" color="link" routerLink="/forgot"
+          >¿Olvidaste tu contraseña?</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="errorMessage">
+      <ion-col>
+        <ion-text color="danger">{{ errorMessage }}</ion-text>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
+
+<ion-footer [translucent]="false" style="box-shadow: none">
+  <ion-toolbar color="bg" style="padding: 15px; --border-width: 0 0">
+    <ion-text class="m12" style="display: block; text-align: center"
+      >Terms & Privacy Policy</ion-text
+    >
+  </ion-toolbar>
+</ion-footer>

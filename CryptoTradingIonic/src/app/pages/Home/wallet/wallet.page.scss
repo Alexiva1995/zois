@@ -1,0 +1,14 @@
+ion-datetime {
+    --background: var(--ion-color-bg);
+    --background-rgb: var(--ion-color-bg);
+    --wheel-highlight-background: var(--ion-color-box);
+    --wheel-fade-background-rgb: var(--ion-color-bg);
+  }
+  
+  ion-datetime::part(wheel-item) {
+    color:var(--ion-color-icon);
+  }
+  
+  ion-datetime::part(wheel-item active) {
+    color:var(--ion-color-txt);
+  }

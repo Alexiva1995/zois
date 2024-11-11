@@ -1,0 +1,215 @@
+<ion-header [translucent]="false" style="box-shadow: none;">
+  <ion-toolbar color="bg" style="padding: 0px 15px;--border-width: 0 0;padding-top: 10px;">
+    <ion-buttons slot="start" >
+      <ion-icon name="information-circle-outline" style="font-size: 24px;color: var(--ion-color-icon);"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end" >
+      <ion-icon name="ellipsis-horizontal" style="font-size: 24px;color: var(--ion-color-icon);"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  
+  <ion-text class="apptitle" style="font-size: 28px;">Stock</ion-text>
+
+  <div class="list" style="margin-top: 15px;">
+    <div style="margin-right: 5px;height: 35px;flex: 1;flex-direction: row;align-items: center;display: flex;border-radius: 10px;background-color: var(--ion-color-box);padding-left: 5px;">
+      <ion-icon name="search-outline" style="font-size: 17px;color: var(--ion-color-icon);"></ion-icon>
+      <ion-input placeholder="Search" type="text" style="margin-left: 10px;"></ion-input>
+    </div>
+    <div routerLink="/bit" style="margin-left: 5px;height: 35px;flex: 1;flex-direction: row;align-items: center;display: flex;border-radius: 10px;background-color: var(--ion-color-back);padding-left: 10px;padding-right: 5px;">
+      <ion-text class="m14" style="flex: 1;">Market cap</ion-text>
+      <ion-icon name="swap-vertical" style="font-size: 17px;color: var(--ion-color-icon);"></ion-icon>
+    </div>
+  </div>
+
+  <div id="open-modal1" class="list" style="margin-top: 15px;">
+    <ion-img src="../../../../assets/image/s15.png" style="height: 49px;width: 49px;"></ion-img>
+    <div style="flex-direction: column;display: flex;margin-left: 10px;flex: 1;">
+      <ion-text class="b14" >Bitcoin</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: var(--ion-color-icon);">BTC</ion-text>
+      </div>
+    </div>
+    <div style="flex-direction: column;display: flex;align-items: flex-end;">
+      <ion-text class="b14" >$5,750.70</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: var(--ion-color-green);">+ 7,12 %</ion-text>
+      </div>
+    </div>
+  </div>
+  <div class="lines" style="margin-top: 15px;margin-left: 59px;background-color: #2E3546;"></div>
+
+  <div class="list" style="margin-top: 15px;">
+    <ion-img src="../../../../assets/image/s16.png" style="height: 49px;width: 49px;"></ion-img>
+    <div style="flex-direction: column;display: flex;margin-left: 10px;flex: 1;">
+      <ion-text class="b14" >Ethereum</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: var(--ion-color-icon);">ETH</ion-text>
+      </div>
+    </div>
+    <div style="flex-direction: column;display: flex;align-items: flex-end;">
+      <ion-text class="b14" >$315.86</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: #FF3750;">- 4,05 %</ion-text>
+      </div>
+    </div>
+  </div>
+  <div class="lines" style="margin-top: 15px;margin-left: 59px;background-color: #2E3546;"></div>
+
+  <div class="list" style="margin-top: 15px;">
+    <ion-img src="../../../../assets/image/s15.png" style="height: 49px;width: 49px;"></ion-img>
+    <div style="flex-direction: column;display: flex;margin-left: 10px;flex: 1;">
+      <ion-text class="b14" >Bitcoin Cash</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: var(--ion-color-icon);">BCH</ion-text>
+      </div>
+    </div>
+    <div style="flex-direction: column;display: flex;align-items: flex-end;">
+      <ion-text class="b14" >$1,181.54</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: #FF3750;">- 21,12 %</ion-text>
+      </div>
+    </div>
+  </div>
+  <div class="lines" style="margin-top: 15px;margin-left: 59px;background-color: #2E3546;"></div>
+
+  <div class="list" style="margin-top: 15px;">
+    <ion-img src="../../../../assets/image/s17.png" style="height: 49px;width: 49px;"></ion-img>
+    <div style="flex-direction: column;display: flex;margin-left: 10px;flex: 1;">
+      <ion-text class="b14" >Ripple</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: var(--ion-color-icon);">XRP</ion-text>
+      </div>
+    </div>
+    <div style="flex-direction: column;display: flex;align-items: flex-end;">
+      <ion-text class="b14" >$0.20034</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: var(--ion-color-green);">+ 14,92 %</ion-text>
+      </div>
+    </div>
+  </div>
+  <div class="lines" style="margin-top: 15px;margin-left: 59px;background-color: #2E3546;"></div>
+
+  <div class="list" style="margin-top: 15px;">
+    <ion-img src="../../../../assets/image/s18.png" style="height: 49px;width: 49px;"></ion-img>
+    <div style="flex-direction: column;display: flex;margin-left: 10px;flex: 1;">
+      <ion-text class="b14" >Litecoin</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: var(--ion-color-icon);">LTC</ion-text>
+      </div>
+    </div>
+    <div style="flex-direction: column;display: flex;align-items: flex-end;">
+      <ion-text class="b14" >$61.13</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: #FF3750;">- 1,69 %</ion-text>
+      </div>
+    </div>
+  </div>
+  <div class="lines" style="margin-top: 15px;margin-left: 59px;background-color: #2E3546;"></div>
+
+  <div class="list" style="margin-top: 15px;">
+    <ion-img src="../../../../assets/image/s19.png" style="height: 49px;width: 49px;"></ion-img>
+    <div style="flex-direction: column;display: flex;margin-left: 10px;flex: 1;">
+      <ion-text class="b14" >Dash</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: var(--ion-color-icon);">Dash</ion-text>
+      </div>
+    </div>
+    <div style="flex-direction: column;display: flex;align-items: flex-end;">
+      <ion-text class="b14" >$405.23</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: #FF3750;">- 9,65 %</ion-text>
+      </div>
+    </div>
+  </div>
+  <div class="lines" style="margin-top: 15px;margin-left: 59px;background-color: #2E3546;"></div>
+
+  <div class="list" style="margin-top: 15px;">
+    <ion-img src="../../../../assets/image/s20.png" style="height: 49px;width: 49px;"></ion-img>
+    <div style="flex-direction: column;display: flex;margin-left: 10px;flex: 1;">
+      <ion-text class="b14" >Peercoin</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: var(--ion-color-icon);">PPC</ion-text>
+      </div>
+    </div>
+    <div style="flex-direction: column;display: flex;align-items: flex-end;">
+      <ion-text class="b14" >$0.922156</ion-text>
+      <div style="margin-top: 3px;">
+        <ion-text class="b12" style="color: var(--ion-color-green);">+ 5,10 %</ion-text>
+      </div>
+    </div>
+  </div>
+  <div class="lines" style="margin-top: 15px;margin-left: 59px;background-color: #2E3546;margin-bottom: 70px;"></div>
+  
+
+  <ion-modal
+    cssClass="rbsheet"
+    trigger="open-modal1"
+    [initialBreakpoint]="0.9"
+    [breakpoints]="[0, 1]"
+    handleBehavior="cycle">
+
+    <ng-template>
+      <ion-content class="ion-padding" >
+
+        <ion-img src="../../../../assets/image/s21.png" style="height: 35px;width: 26px;"></ion-img>
+        <!-- <ion-img src="../../../../assets/image/s22.png" ></ion-img> -->
+
+        <div class="div1" style="margin-top: 10px;">
+          <ion-text class="apptitle" style="font-size: 28px;">Bitcoin</ion-text>
+          <ion-text class="b14" style="color: var(--ion-color-green);">$6.564.30</ion-text>
+          <div style="flex: 1;justify-content: flex-end;display: flex;flex-direction: column;">
+            <div class="list" style="justify-content: space-between;">
+              <div style="height: 30px;width: 63px;border-radius: 20px;justify-content: center;align-items: center;display: flex;background-color: var(--ion-color-green);">
+                <ion-text class="b12" style="color: #fff;font-size: 11px;">Buy</ion-text>
+              </div>
+              <div style="height: 30px;width: 83px;border-radius: 20px;justify-content: center;align-items: center;display: flex;background-color: var(--ion-color-green);flex-direction: row;">
+                <ion-icon name="arrow-up" style="font-size: 14px;color: #fff;"></ion-icon>
+                <ion-text class="b12" style="color: #fff;font-size: 11px;margin-left: 7px;">7.12%</ion-text>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="list" style="margin: 15px 0;justify-content: space-evenly;">
+          <ion-text class="b12" style="color: #3E475A;">Today</ion-text>
+          <ion-text class="b12" style="color: #3E475A;">1W</ion-text>
+          <div style="height: 30px;width: 40px;border-radius: 20px;justify-content: center;align-items: center;display: flex;background-color: var(--ion-color-back);">
+            <ion-text class="b12" style="color: #fff;">1M</ion-text>
+          </div>
+          <ion-text class="b12" style="color: #3E475A;">3M</ion-text>
+          <ion-text class="b12" style="color: #3E475A;">6M</ion-text>
+          <ion-text class="b12" style="color: #3E475A;">1Y</ion-text>
+          <ion-text class="b12" style="color: #3E475A;">ALL</ion-text>
+        </div>
+        <div class="list1" style="margin-top: 20px;" >
+          <ion-text class="m14" style="color: var(--ion-color-icon);">Market Cap</ion-text>
+          <ion-text class="m14" >$6.421.412.77</ion-text>
+        </div>
+        <div class="lines" style="margin-top: 15px;background-color: #2E3546;"></div>
+
+        <div class="list1" style="margin-top:15px;" >
+          <ion-text class="m14" style="color: var(--ion-color-icon);">Volume 24hr</ion-text>
+          <ion-text class="m14" >$766.421.412.41</ion-text>
+        </div>
+        <div class="lines" style="margin-top: 15px;background-color: #2E3546;"></div>
+
+        <div class="list1" style="margin-top:15px;" >
+          <ion-text class="m14" style="color: var(--ion-color-icon);">Available Supply</ion-text>
+          <ion-text class="m14" >15.421.412.29</ion-text>
+        </div>
+        <div class="lines" style="margin-top: 15px;background-color: #2E3546;"></div>
+
+        <div class="list1" style="margin-top:15px;" >
+          <ion-text class="m14" style="color: var(--ion-color-icon);">% Change 24hr</ion-text>
+          <ion-text class="m14" style="color: var(--ion-color-green);" >+%24,95</ion-text>
+        </div>
+        <div class="lines" style="margin: 15px 0;background-color: #2E3546;"></div>
+
+       
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

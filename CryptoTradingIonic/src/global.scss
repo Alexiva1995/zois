@@ -1,0 +1,309 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+@import "./theme/fonts.scss";
+
+* {
+  // font-family: 'Times New Roman', Times, serif;
+  font-family: SF-UI-Display-Regular;
+  font-family: SF-UI-Display-Bold;
+  font-family: SF-UI-Display-Medium;
+  font-family: SF-UI-Display-Semibold;
+}
+
+ion-content {
+  // overwrite inline styles
+  --offset-bottom: auto !important;
+  --overflow: hidden;
+  background: var(--ion-color-bg);
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.input {
+  --highlight-height: 0;
+  border-bottom: 1px solid #2e3546;
+  padding-top: 0;
+  // padding: 0 15px;
+  height: 43px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-radius: 0px;
+  ion-icon {
+    font-size: 20px;
+    color: #9e9e9e;
+  }
+  ion-input {
+    font-size: 14px;
+    font-family: SF-UI-Display-Medium;
+    color: var(--ion-color-txt);
+    --placeholder-color: #6d778b;
+    --highlight-color-focused: none;
+  }
+}
+
+.box {
+  background-color: #1a202e;
+  margin-right: -20px;
+  border-top: 1px solid #2951ff;
+  margin-left: 10px;
+}
+
+.list {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+.list1 {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lines {
+  background-color: #f4f5f7;
+  height: 1px;
+  display: block;
+}
+
+.lines1 {
+  background-color: linear-gradient(to top left, #7E00FF , #0078FF);
+  height: 1px;
+  display: block;
+}
+
+ion-button {
+  height: 52px;
+  --box-shadow: none;
+  text-transform: initial;
+  font-size: 14px;
+  letter-spacing: 0;
+  --border-radius: 30px;
+  font-family: SF-UI-Display-Bold;
+  --background: linear-gradient(to top left, #7E00FF,#0078FF);
+}
+
+.btn {
+  height: 49px;
+  width: 49px;
+  background: linear-gradient(to top left, #7E00FF,#0078FF);
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  ion-icon {
+    font-size: 21px;
+    color: #ffffff;
+  }
+}
+
+.ios ion-toolbar {
+  --padding-top: 15px;
+  --background: #ffffff;
+  --color: #000000;
+  ion-icon{
+    color: var(--ion-color-icon);
+  }
+}
+ion-toolbar {
+  --background: #ffffff;
+  --color: #000000;
+  ion-icon{
+    color: var(--ion-color-icon);
+  }
+}
+
+.rbsheet {
+  --border-radius: 20px;
+  height: auto;
+  background-color: transparent;
+  ion-modal::part(content) {
+    backdrop-filter: blur(12px);
+  }
+  ion-content {
+    --background: var(--ion-color-bg);
+  }
+}
+
+.scroll {
+  flex-wrap: nowrap;
+  overflow-x: scroll !important;
+  overflow-y: hidden;
+  align-items: center;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.title {
+  font-size: 39px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Bold;
+}
+
+.apptitle {
+  font-size: 24px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Bold;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Bold;
+}
+
+.r10 {
+  font-size: 10px;
+  color: var(--ion-color-icon);
+  font-family: SF-UI-Display-Regular;
+}
+
+.m10 {
+  font-size: 10px;
+  color: var(--ion-color-icon);
+  font-family: SF-UI-Display-Medium;
+}
+
+.b10 {
+  font-size: 10px;
+  color: var(--ion-color-icon);
+  font-family: SF-UI-Display-Bold;
+}
+
+.s10 {
+  font-size: 10px;
+  color: var(--ion-color-icon);
+  font-family: SF-UI-Display-Semibold;
+}
+
+.r12 {
+  font-size: 12px;
+  color: var(--ion-color-icon);
+  font-family: SF-UI-Display-Regular;
+}
+
+.m12 {
+  font-size: 12px;
+  color: var(--ion-color-icon);
+  font-family: SF-UI-Display-Medium;
+}
+
+.b12 {
+  font-size: 12px;
+  color: var(--ion-color-icon);
+  font-family: SF-UI-Display-Bold;
+}
+
+.s12 {
+  font-size: 12px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Semibold;
+}
+
+.r14 {
+  font-size: 14px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Regular;
+}
+
+.m14 {
+  font-size: 14px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Medium;
+}
+
+.b14 {
+  font-size: 14px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Bold;
+}
+
+.s14 {
+  font-size: 14px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Semibold;
+}
+
+.r16 {
+  font-size: 16px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Regular;
+}
+
+.m16 {
+  font-size: 16px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Medium;
+}
+
+.b16 {
+  font-size: 16px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Bold;
+}
+
+.s16 {
+  font-size: 16px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Semibold;
+}
+
+.r18 {
+  font-size: 18px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Regular;
+}
+
+.m18 {
+  font-size: 18px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Medium;
+}
+
+.b18 {
+  font-size: 18px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Bold;
+}
+.s18 {
+  font-size: 18px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Semibold;
+}
+
+.text1 {
+  font-size: 18px;
+  margin-top: -8px;
+  color: var(--ion-color-txt);
+  font-family: SF-UI-Display-Semibold;
+}

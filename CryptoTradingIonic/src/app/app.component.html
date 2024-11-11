@@ -1,0 +1,58 @@
+<ion-app>
+
+  <ion-menu [type]="menuType" content-id="main-content" menuId="main-Id">
+   
+    <ion-header [translucent]="false" style="box-shadow: none;">
+      <ion-toolbar  style="padding: 10px 15px;--border-width: 0 0;--background: var(--ion-color-bg);">
+        <ion-buttons slot="start">
+          <ion-img src="../assets/image/s23.png" style="height: 32px;width: 32px;"></ion-img>
+        </ion-buttons>
+        <ion-text class="b14" style="margin-left: 15px;">Denis Abdullin</ion-text>
+      </ion-toolbar>
+    </ion-header>
+    <div class="lines1"></div>
+
+    <ion-content style="background-color: var(--ion-color-bg);"  class="ion-padding" >
+  
+      <ion-text class="b12"  style="color: var(--ion-color-icon);">Accounts</ion-text>
+  
+      <div (click)="closemenu5()" class="list"  style="margin-top: 10px;">
+        <ion-img src="../assets/image/s24.png" style="height: 21px;width: 21px;"></ion-img>
+        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Personal</ion-text>
+      </div>
+      <div (click)="closemenu6()" class="list"  style="margin-top: 15px;">
+        <ion-img src="../assets/image/s24.png" style="height: 21px;width: 21px;"></ion-img>
+        <ion-text class="b14" style="margin-left: 15px;flex: 1;">INC</ion-text>
+      </div>
+      <div (click)="closemenu4()" class="list"  style="margin-top: 15px;">
+        <ion-img src="../assets/image/s24.png" style="height: 21px;width: 21px;"></ion-img>
+        <ion-text class="b14" style="margin-left: 15px;flex: 1;">USD Wallet</ion-text>
+      </div>
+      <div (click)="closemenu()"  class="list"  style="margin-top: 15px;">
+        <ion-img src="../assets/image/s25.png" style="height: 21px;width: 21px;"></ion-img>
+        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Multisig</ion-text>
+      </div>
+      <div (click)="closemenu1()" class="list"  style="margin-top: 15px;margin-bottom: 20px;">
+        <ion-img src="../assets/image/s25.png" style="height: 21px;width: 21px;"></ion-img>
+        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Vault</ion-text>
+      </div>
+      <ion-text class="b12"  style="color: var(--ion-color-icon);">Bitcoin</ion-text>
+      <div (click)="closemenu2()" class="list"  style="margin-top: 15px;">
+        <ion-img src="../assets/image/s26.png" style="height: 21px;width: 21px;"></ion-img>
+        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Buy</ion-text>
+      </div>
+      <div (click)="closemenu3()" class="list"  style="margin-top: 15px;margin-bottom: 20px;">
+        <ion-img src="../assets/image/s27.png" style="height: 21px;width: 21px;"></ion-img>
+        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Sell</ion-text>
+      </div>
+      <ion-text class="b12"  style="color: var(--ion-color-icon);">More</ion-text>
+      <div (click)="closemenu7()" class="list"  style="margin-top: 15px;">
+        <ion-img src="../assets/image/s28.png" style="height: 21px;width: 21px;"></ion-img>
+        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Settings</ion-text>
+      </div>
+
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-app>
