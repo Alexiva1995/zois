@@ -7,12 +7,14 @@ import { IonTabs } from '@ionic/angular';
   styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-
+  userType: 'estudiante' | 'profesor' | null = null;
   selectTab: any;
-  @ViewChild('tabs',{static:false})
+  @ViewChild('tabs', { static: false })
   tabs!: IonTabs;
 
-  constructor() { }
+  constructor() {
+    // this.user$ = this.store.select('user');
+  }
 
   ngOnInit() {
   }

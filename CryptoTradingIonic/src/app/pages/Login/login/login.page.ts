@@ -1,8 +1,7 @@
-import { ToastService } from './../../../services/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
-import { AuthService } from 'src/app/services/auth.service';
+import { Store } from '@ngrx/store';
+import { loginRequest } from 'src/app/store/auth/auth.actions';
 
 interface LoginForm {
   email: FormControl;
@@ -17,11 +16,7 @@ interface LoginForm {
 export class LoginPage implements OnInit {
   loginForm!: FormGroup<LoginForm>;
   errorMessage: string = '';
-  constructor(
-    private authService: AuthService,
-    private toastService: ToastService,
-    private navCtrl: NavController
-  ) {
+  constructor(private store: Store) {
     this.loginForm = new FormGroup({
       email: new FormControl('ramonfigueroa@valdusoft.com', [
         Validators.required,
@@ -39,20 +34,7 @@ export class LoginPage implements OnInit {
   async login() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-
-      this.authService.login(email, password).subscribe(
-        (response) => {
-          if (response) {
-            this.navCtrl.navigateRoot('/tabs'); // Redirigir al home después del login exitoso
-          }
-          throw this.toastService.showError('Credenciales inválidas');
-        },
-        (error) => {
-          this.toastService.showError(
-            error.message || 'Credenciales inválidas'
-          );
-        }
-      );
+      this.store.dispatch(loginRequest({ email, password }));
     }
   }
 }

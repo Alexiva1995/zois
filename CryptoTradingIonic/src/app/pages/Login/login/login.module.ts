@@ -1,3 +1,5 @@
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './../../../store/auth/auth.effects';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +17,7 @@ import { LoginPage } from './login.page';
     IonicModule,
     LoginPageRoutingModule,
     ReactiveFormsModule,
+    EffectsModule.forFeature([AuthEffects]),
   ],
   declarations: [LoginPage],
 })

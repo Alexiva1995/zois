@@ -1,4 +1,4 @@
-<ion-tabs #tabs (ionTabsDidChange)="setCurrentTab()" >
+<ion-tabs #tabs (ionTabsDidChange)="setCurrentTab()">
 
   <!-- -------------------Custom Tabs with fab button------------------------------- -->
   <!-- <ion-fab vertical="bottom" horizontal="center" translucent="true">
@@ -6,21 +6,43 @@
       <ion-img src="../../../../assets/image/t13.png" style="height: 42px;width: 55px;"></ion-img>
     </ion-fab-button>
   </ion-fab> -->
+
   <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="candles" >
-      <ion-icon name="briefcase" [color]="selectTab == 'candles' ? 'txt' : 'icon' " style="font-size: 21px;"></ion-icon>      
+    <!-- Home Tab (visible para todos los usuarios) -->
+    <ion-tab-button tab="candles">
+      <ion-icon name="briefcase" [color]="selectTab === 'candles' ? 'txt' : 'icon'" style="font-size: 21px;"></ion-icon>
       <!-- Home -->
     </ion-tab-button>
     
-    <ion-tab-button tab="stock" >
-      <ion-icon name="pie-chart" [color]="selectTab == 'stock' ? 'txt' : 'icon' " style="font-size: 21px;"></ion-icon>
-      <!-- stock -->
+    <!-- Stock Tab (visible para todos los usuarios) -->
+    <ion-tab-button tab="stock">
+      <ion-icon name="pie-chart" [color]="selectTab === 'stock' ? 'txt' : 'icon'" style="font-size: 21px;"></ion-icon>
+      <!-- Stock -->
     </ion-tab-button>
 
+    <!-- Setting Tab (visible para todos los usuarios) -->
     <ion-tab-button tab="setting">
-      <ion-img [src]=" selectTab == 'setting' ? '../../../../assets/image/a13p.png' : '../../../../assets/image/a13.png' " style="height: 21px;width: 21px;"></ion-img>
-      <!-- setting -->
+      <ion-img [src]="selectTab === 'setting' ? '../../../../assets/image/a13p.png' : '../../../../assets/image/a13.png'" style="height: 21px; width: 21px;"></ion-img>
+      <!-- Setting -->
+    </ion-tab-button>
+
+    <!-- Crear Señal (solo visible para profesores) -->
+    <ion-tab-button *ngIf="userType === 'profesor'" tab="crear-senal">
+      <ion-icon name="add-circle" [color]="selectTab === 'crear-senal' ? 'txt' : 'icon'" style="font-size: 21px;"></ion-icon>
+      <!-- Crear Señal -->
+    </ion-tab-button>
+
+    <!-- Perfil (visible para profesores y estudiantes) -->
+    <ion-tab-button *ngIf="userType" tab="perfil">
+      <ion-icon name="person" [color]="selectTab === 'perfil' ? 'txt' : 'icon'" style="font-size: 21px;"></ion-icon>
+      <!-- Perfil -->
+    </ion-tab-button>
+
+    <!-- Estudiantes Inscritos (solo visible para profesores) -->
+    <ion-tab-button *ngIf="userType === 'profesor'" tab="estudiantes">
+      <ion-icon name="people" [color]="selectTab === 'estudiantes' ? 'txt' : 'icon'" style="font-size: 21px;"></ion-icon>
+      <!-- Estudiantes Inscritos -->
     </ion-tab-button>
 
   </ion-tab-bar>
