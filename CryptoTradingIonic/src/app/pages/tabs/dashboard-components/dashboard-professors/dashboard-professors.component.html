@@ -1,0 +1,10 @@
+<ion-card *ngFor="let professor of professors$ | async">
+  <ion-card-header>
+    <ion-card-title>{{ professor.name }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>Seguidores: {{ professor.followers }}</p>
+    <p>Promedio de señales diarias: {{ professor.dailySignalsAverage }}</p>
+    <p>Total de señales: {{ professor.totalSignals }}</p>
+  </ion-card-content>
+</ion-card>

@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { CandlesPageRoutingModule } from './candles-routing.module';
 
+import { DashboardComponentsModule } from '../dashboard-components/dashboard-components.module';
 import { CandlesPage } from './candles.page';
 
 @NgModule({
@@ -13,8 +14,9 @@ import { CandlesPage } from './candles.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CandlesPageRoutingModule
+    CandlesPageRoutingModule,
+    DashboardComponentsModule,
   ],
-  declarations: [CandlesPage]
+  declarations: [CandlesPage],
 })
 export class CandlesPageModule {}

@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { catchError, map, mergeMap, tap } from 'rxjs/operators';
+import { LoadingService } from 'src/app/services/loading.service';
 import { ToastService } from 'src/app/services/toast.service';
 import * as AuthActions from './auth.actions';
 
@@ -13,38 +14,52 @@ export class AuthEffects {
     private actions$: Actions,
     private http: HttpClient,
     private toastService: ToastService,
-    private navCtrl: NavController
-  ) {}
+    private router: Router,
+    private loadingService: LoadingService
+  ) { }
 
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.loginRequest),
+      tap(() => this.loadingService.showLoading()),
       mergeMap((action) =>
-        this.http
-          .post<any>('/api/login', {
-            email: action.email,
-            password: action.password,
+        this.http.post<any>('/api/login', {
+          email: action.email,
+          password: action.password,
+        }).pipe(
+          map((user) => {
+            this.loadingService.hideLoading();
+            return AuthActions.loginSuccess({ user });
+          }),
+          catchError((error) => {
+            this.loadingService.hideLoading();
+            this.toastService.showError('Error en el login. Por favor, intenta de nuevo.');
+            return of(AuthActions.loginFailure({ error: error.message || 'Error desconocido' }));
           })
-          .pipe(
-            map((user) => {
-              this.navCtrl.navigateForward('/tabs');
-              return AuthActions.loginSuccess({ user });
-            }),
-            catchError((error) => {
-              this.toastService.showError(
-                'Error en el login. Por favor, intenta de nuevo.'
-              );
-              //QUITAR CUANDO SE HAGA LA IMPLEMENTACION
-              this.navCtrl.navigateForward('/tabs');
-              //QUITAR CUANDO SE HAGA LA IMPLEMENTACION
-              return of(
-                AuthActions.loginFailure({
-                  error: error.message || 'Error desconocido',
-                })
-              );
-            })
-          )
+        )
       )
     )
   );
+
+
+  loginSuccess$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(AuthActions.loginSuccess),
+        tap(() => this.router.navigate(['/tabs']))
+      ),
+    { dispatch: false }
+  );
+
+
+  /* Only for test */
+  loginFailure$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(AuthActions.loginFailure),
+        tap(() => this.router.navigate(['/tabs']))
+      ),
+    { dispatch: false }
+  );
+  /* Only for test */
 }

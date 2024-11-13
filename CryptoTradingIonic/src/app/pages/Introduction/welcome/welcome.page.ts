@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { IntroService } from './../../../services/intro.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomePage implements OnInit {
 
-  constructor() { }
+  constructor(private introService: IntroService, private router: Router) { }
 
   ngOnInit() {
   }
-
+  async finishIntro() {
+    await this.introService.setHasSeenIntro();
+    this.router.navigate(['/welcome2']);
+  }
 }

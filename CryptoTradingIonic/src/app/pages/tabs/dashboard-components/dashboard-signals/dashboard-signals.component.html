@@ -1,0 +1,21 @@
+<div *ngIf="signals$ | async as signals">
+  <ng-container *ngIf="signals.length > 0; else noSignals">
+    <ion-card *ngFor="let signal of signals" class="signal-card">
+      <ion-card-header>
+        <ion-card-title>{{ signal.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Promedio diario:</strong> {{ signal.dailyAverage }}</p>
+        <p><strong>Total de señales:</strong> {{ signal.totalSignals }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</div>
+
+<ng-template #noSignals>
+  <ion-card class="no-signal-card">
+    <ion-card-content>
+      <p>No hay señales disponibles</p>
+    </ion-card-content>
+  </ion-card>
+</ng-template>
