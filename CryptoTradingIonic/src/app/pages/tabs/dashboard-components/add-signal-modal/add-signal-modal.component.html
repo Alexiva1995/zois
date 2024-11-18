@@ -1,0 +1,128 @@
+<ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar
+    color="bg"
+    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+  >
+    <ion-label class="b14" style="text-align: center; display: block">
+      Agregar señal</ion-label
+    >
+    <ion-icon
+      name="close"
+      slot="end"
+      style="font-size: 21px"
+      (click)="closeModal()"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-scroll>
+    <form [formGroup]="signalForm" (ngSubmit)="submit()">
+      <ion-list lines="inset">
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input
+            formControlName="name"
+            type="text"
+            placeholder="Ingrese el nombre"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Buy Limit</ion-label>
+          <ion-input
+            formControlName="buyLimit"
+            type="number"
+            placeholder="Ingrese el valor"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Sell Limit</ion-label>
+          <ion-input
+            formControlName="sellLimit"
+            type="number"
+            placeholder="Ingrese el valor"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Buy Stop</ion-label>
+          <ion-input
+            formControlName="buyStop"
+            type="number"
+            placeholder="Ingrese el valor"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Sell Stop</ion-label>
+          <ion-input
+            formControlName="sellStop"
+            type="number"
+            placeholder="Ingrese el valor"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Stop Loss</ion-label>
+          <ion-input
+            formControlName="stopLoss"
+            type="number"
+            placeholder="Ingrese el valor"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Take Profit</ion-label>
+          <ion-input
+            formControlName="takeProfit"
+            type="number"
+            placeholder="Ingrese el valor"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Instrucciones</ion-label>
+          <ion-textarea
+            formControlName="instructions"
+            placeholder="Ingrese las instrucciones"
+          ></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Subir Imagen</ion-label>
+          <ion-button
+            color="primary"
+            expand="block"
+            (click)="fileInput.click()"
+            class="center-button"
+          >
+            <ion-icon slot="start" name="image-outline"></ion-icon>
+            Seleccionar Imagen
+          </ion-button>
+
+          <input
+            type="file"
+            #fileInput
+            hidden
+            accept="image/*"
+            (change)="onFileChange($event)"
+          />
+
+          <div *ngIf="imagePreview" class="image-container">
+            <img
+              [src]="imagePreview"
+              alt="Imagen cargada"
+              class="image-preview"
+            />
+          </div>
+        </ion-item>
+      </ion-list>
+
+      <ion-button expand="block" type="submit" [disabled]="signalForm.invalid">
+        Guardar Señal
+      </ion-button>
+    </form>
+  </ion-scroll>
+</ion-content>

@@ -1,0 +1,60 @@
+.signal-card {
+  margin: 16px;
+  border-radius: 8px;
+  --background: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.signal-card ion-card-header {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px;
+  border-radius: 8px 8px 0 0;
+}
+
+.signal-card ion-card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.signal-card ion-card-content {
+  padding: 12px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.signal-info p {
+  margin: 4px 0;
+  font-size: 1rem;
+}
+
+.signal-instructions p {
+  margin-top: 12px;
+  font-style: italic;
+  color: #555;
+}
+
+.signal-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 12px auto;
+}
+
+.no-signal-card {
+  margin: 16px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #888;
+  --background: #f1f1f1;
+}
+
+ion-fab {
+  z-index: 1000;
+  margin-bottom: 20px;
+}
+ion-fab-button {
+  --background: #3880ff;
+  --color: white;
+}

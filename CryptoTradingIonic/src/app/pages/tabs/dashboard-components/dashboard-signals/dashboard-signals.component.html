@@ -5,8 +5,20 @@
         <ion-card-title>{{ signal.name }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <p><strong>Promedio diario:</strong> {{ signal.dailyAverage }}</p>
-        <p><strong>Total de señales:</strong> {{ signal.totalSignals }}</p>
+        <div class="signal-info">
+          <p><strong>Buy Limit:</strong> {{ signal.buyLimit }}</p>
+          <p><strong>Sell Limit:</strong> {{ signal.sellLimit }}</p>
+          <p><strong>Buy Stop:</strong> {{ signal.buyStop }}</p>
+          <p><strong>Sell Stop:</strong> {{ signal.sellStop }}</p>
+          <p><strong>Stop Loss:</strong> {{ signal.stopLoss }}</p>
+          <p><strong>Take Profit:</strong> {{ signal.takeProfit }}</p>
+        </div>
+        <div class="signal-instructions">
+          <p><strong>Instrucciones:</strong> {{ signal.instructions }}</p>
+        </div>
+        <div class="signal-image" *ngIf="signal.image">
+          <img [src]="signal.image" alt="Imagen de señal" />
+        </div>
       </ion-card-content>
     </ion-card>
   </ng-container>
@@ -19,3 +31,15 @@
     </ion-card-content>
   </ion-card>
 </ng-template>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="openAddSignalModal()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()">
+  <ng-template>
+    <app-add-signal-modal (close)="closeModal()" (signalAdded)="handleSignalAdded($event)"></app-add-signal-modal>
+  </ng-template>
+</ion-modal>

@@ -10,3 +10,7 @@ export const loadSignalsFailure = createAction(
   '[Signals] Load Signals Failure',
   props<{ error: string }>()
 );
+export const addSignal = createAction(
+  '[Signal] Add Signal',
+  props<{ signal: Signal }>()
+);

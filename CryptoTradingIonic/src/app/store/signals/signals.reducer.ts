@@ -18,5 +18,9 @@ export const signalsReducer = createReducer(
     ...state,
     loading: false,
     error,
+  })),
+  on(SignalsActions.addSignal, (state, { signal }) => ({
+    ...state,
+    signals: [...state.signals, signal]
   }))
 );

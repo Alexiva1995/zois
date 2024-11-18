@@ -1,0 +1,46 @@
+ion-item {
+  margin-bottom: 16px;
+}
+
+ion-button {
+  --border-radius: 20px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  font-size: 16px;
+}
+
+ion-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+input[type="file"] {
+  margin-top: 8px;
+}
+ion-content {
+  height: calc(110vh - 10rem);
+  overflow-y: auto;
+}
+ion-list {
+  border-radius: 1rem;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.image-container {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
