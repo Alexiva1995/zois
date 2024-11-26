@@ -39,6 +39,11 @@ export class AppComponent {
     this.menuCtrl.close();
     this.router.navigate(['/balance'])
   }
+
+  closemenuHistorial() {
+    this.menuCtrl.close();
+    this.router.navigate(['/historical'])
+  }
   closemenu6() {
     this.menuCtrl.close();
     this.router.navigate(['/bitcoin'])

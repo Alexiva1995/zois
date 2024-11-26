@@ -1,0 +1,26 @@
+.filters {
+  padding: 1rem;
+  text-align: center;
+
+  ion-button {
+    margin: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--ion-color-medium);
+  }
+}
+
+ion-modal {
+  --width: 90%;
+  --height: auto;
+  --border-radius: 10px;
+  --background: var(--ion-background-color);
+}
+
+ion-datetime {
+  --background: var(--ion-color-light);
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+}

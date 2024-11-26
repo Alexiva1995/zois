@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Historical</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Sección de filtros -->
+  <ion-card>
+    <ion-card-content>
+      <!-- Buscador -->
+      <ion-item>
+        <ion-label position="floating">Search by Active</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Enter asset name"
+          [(ngModel)]="filters.asset"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Filtro de tipo de orden -->
+      <ion-item>
+        <ion-label>Order Type</ion-label>
+        <ion-select
+          placeholder="Select"
+          [(ngModel)]="filters.orderType"
+          interface="popover"
+        >
+          <ion-select-option value="">All</ion-select-option>
+          <ion-select-option value="buy">Buy</ion-select-option>
+          <ion-select-option value="sell">Sell</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Filtro de educador -->
+      <ion-item>
+        <ion-label>Educator</ion-label>
+        <ion-select
+          placeholder="Select"
+          [(ngModel)]="filters.educator"
+          interface="popover"
+        >
+          <ion-select-option value="">All</ion-select-option>
+          <ion-select-option *ngFor="let educator of educators" [value]="educator">
+            {{ educator }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Botón para seleccionar rango de fechas -->
+      <ion-item>
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Listado de señales -->
+  <ion-list>
+    <ion-item *ngFor="let signal of filteredSignals">
+      <ion-label>
+        <h2>{{ signal.asset }}</h2>
+        <p>Order Type: {{ signal.orderType }}</p>
+        <p>Entry Price: {{ signal.entryPrice }}</p>
+        <p>Educator: {{ signal.educator }}</p>
+        <p>{{ signal.dateTime | date: 'short' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime
+      id="datetime"
+      presentation="date-time-range"
+      [(ngModel)]="filters.dateRange"
+      (ionChange)="updateDateRange($event)"
+      [firstDayOfWeek]="1"
+      [locale]="'en-US'"
+      [min]="minDate"
+      [max]="maxDate"
+      [formatOptions]="{
+        date: {
+          weekday: 'short',
+          month: 'long',
+          day: '2-digit'
+        },
+        time: {
+          hour: '2-digit',
+          minute: '2-digit'
+        }
+      }"
+    ></ion-datetime>
+
+    </ng-template>
+  </ion-modal>
+</ion-content>

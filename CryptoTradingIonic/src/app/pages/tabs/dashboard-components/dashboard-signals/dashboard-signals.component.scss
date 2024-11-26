@@ -52,9 +52,13 @@
 
 ion-fab {
   z-index: 1000;
-  margin-bottom: 20px;
+  margin-bottom: 4rem;
 }
 ion-fab-button {
   --background: #3880ff;
   --color: white;
+}
+
+.content{
+  padding-bottom: 3rem;
 }

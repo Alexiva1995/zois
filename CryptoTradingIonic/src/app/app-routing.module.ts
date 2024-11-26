@@ -108,7 +108,12 @@ const routes: Routes = [
   {
     path: 'pin',
     loadChildren: () => import('./pages/Setting/pin/pin.module').then( m => m.PinPageModule)
+  },  {
+    path: 'historical',
+    loadChildren: () => import('./pages/historical/historical.module').then( m => m.HistoricalPageModule)
   },
+
+
   
 ];
 
