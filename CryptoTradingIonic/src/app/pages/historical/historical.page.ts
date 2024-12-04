@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MenuController, PopoverController } from '@ionic/angular';
+import { FilterModalComponent } from 'src/app/shared-components/filter-modal/filter-modal.component';
 
 @Component({
   selector: 'app-historical',
@@ -6,6 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./historical.page.scss'],
 })
 export class HistoricalPage {
+  presentPopover: any;
+  constructor(
+    private menuCtrl: MenuController,
+    private popoverCtrl: PopoverController
+  ) {}
 
   signals = [
     {
@@ -60,11 +67,29 @@ export class HistoricalPage {
 
       const matchesDateRange =
         (!this.filters.dateRange.start ||
-          new Date(signal.dateTime) >= new Date(this.filters.dateRange.start)) &&
+          new Date(signal.dateTime) >=
+            new Date(this.filters.dateRange.start)) &&
         (!this.filters.dateRange.end ||
           new Date(signal.dateTime) <= new Date(this.filters.dateRange.end));
 
-      return matchesAsset && matchesOrderType && matchesEducator && matchesDateRange;
+      return (
+        matchesAsset && matchesOrderType && matchesEducator && matchesDateRange
+      );
     });
+  }
+
+  openmenu() {
+    this.menuCtrl.enable(true, 'main-Id');
+    this.menuCtrl.open('main-Id');
+  }
+
+  async openFilters(event: any) {
+    const popover = await this.popoverCtrl.create({
+      component: FilterModalComponent,
+      event: event, // El evento es necesario para posicionar el popover correctamente
+      translucent: true, // Para darle un fondo translúcido al popover
+    });
+
+    await popover.present();
   }
 }

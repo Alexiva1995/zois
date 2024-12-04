@@ -1,97 +1,104 @@
 <ion-header [translucent]="false" style="box-shadow: none;">
   <ion-toolbar color="bg" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
-    <ion-buttons slot="start" routerLink="/tabs">
-      <ion-icon name="arrow-back-outline" style="font-size: 24px;" ></ion-icon>
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-img
+        src="../../../../assets/image/a2.png"
+        style="height: 21px; width: 21px"
+      ></ion-img>
     </ion-buttons>
-    <ion-label class="b14" style="text-align: center;display: block;">   Aragon, ANT</ion-label>
-    <ion-icon name="calendar-clear" slot="end" style="font-size: 21px;"></ion-icon>
+    <ion-label class="b14" style="text-align: center;display: block;">Estudiantes</ion-label>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding" color="bg">
-  <div style="display: flex;justify-content: flex-end; position: fixed;transform: translate3d(0,0,0);top: 60px;right: 0;">
-    <ion-img src="../../../../assets/image/a10.png" style="height: 240px;"></ion-img>
+  <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center">
+    <img src="https://dummyimage.com/50x50/ddd/000" alt="Student's Photo" class="rounded-full h-12 w-12 object-cover object-center mr-4">
+    <div>
+      <p class="text-lg font-bold text-black">John Doe</p>
+      <p class="text-sm text-gray-600">Active</p>
+    </div>
+    <div class="grid grid-cols-2 gap-2 ml-auto space-x-2">
+      <div>
+        <p class="font-semibold text-xs text-black">Expiration Date</p>
+        <p class="text-xs text-gray-600">12/31/2022</p>
+      </div>
+      <div>
+        <p class="font-semibold text-xs text-black">Following</p>
+        <p class="text-xs text-green-500">Yes</p>
+      </div>
+    </div>
   </div>
 
-  <div class="list1" style="margin-top: 50px;">
-    <ion-text  class="title">$1,698.17</ion-text>
-    <div style="height: 30px;width: 83px;background-color: var(--ion-color-back);justify-content: center;align-items: center;display: flex;border-radius: 15px;">
-      <ion-text class="b12" style="color: var(--ion-color-txt);">Schedule</ion-text>
+  <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center">
+    <img src="https://dummyimage.com/50x50/ddd/000" alt="Student's Photo" class="rounded-full h-12 w-12 object-cover object-center mr-4">
+    <div>
+      <p class="text-lg font-bold text-black">John Doe</p>
+      <p class="text-sm text-gray-600">Active</p>
+    </div>
+    <div class="grid grid-cols-2 gap-2 ml-auto space-x-2">
+      <div>
+        <p class="font-semibold text-xs text-black">Expiration Date</p>
+        <p class="text-xs text-gray-600">12/31/2022</p>
+      </div>
+      <div>
+        <p class="font-semibold text-xs text-black">Following</p>
+        <p class="text-xs text-green-500">Yes</p>
+      </div>
     </div>
   </div>
 
-  <ion-button id="open-custom-dialog" expand="block" style="margin: 20px 0;">Withdraw</ion-button>
-
-  <div class="list" style="margin-top: 30px;">
-    <ion-text class="b14" style="color: var(--ion-color-icon);">Balance</ion-text>
-    <ion-icon name="remove" color="txt" style="font-size: 20px;margin-left: 20px;margin-right: 5px;"></ion-icon>
-    <ion-text class="b14" >Settlement</ion-text>
+  <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center">
+    <img src="https://dummyimage.com/50x50/ddd/000" alt="Student's Photo" class="rounded-full h-12 w-12 object-cover object-center mr-4">
+    <div>
+      <p class="text-lg font-bold text-black">John Doe</p>
+      <p class="text-sm text-gray-600">Active</p>
+    </div>
+    <div class="grid grid-cols-2 gap-2 ml-auto space-x-2">
+      <div>
+        <p class="font-semibold text-xs text-black">Expiration Date</p>
+        <p class="text-xs text-gray-600">12/31/2022</p>
+      </div>
+      <div>
+        <p class="font-semibold text-xs text-black">Following</p>
+        <p class="text-xs text-green-500">Yes</p>
+      </div>
+    </div>
   </div>
 
-  <div class="box" style="padding: 25px 0;padding-left: 20px;margin-top: 20px;border-top: 0;">
-
-    <div class="list1" style="margin-right: 25px;">
-      <div>
-        <ion-text class="b14" >+ 114.5 ANT</ion-text>
-        <div>
-          <ion-text class="b14" style="color: var(--ion-color-icon);">08.19.2018</ion-text>
-        </div>
-      </div>
-      <ion-text class="b14" >$1698.17</ion-text>
+  <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center">
+    <img src="https://dummyimage.com/50x50/ddd/000" alt="Student's Photo" class="rounded-full h-12 w-12 object-cover object-center mr-4">
+    <div>
+      <p class="text-lg font-bold text-black">John Doe</p>
+      <p class="text-sm text-gray-600">Active</p>
     </div>
-    <div class="lines" style="margin: 15px 0;background-color: var(--ion-color-back);"></div>
-
-    <div class="list1" style="margin-right: 25px;">
+    <div class="grid grid-cols-2 gap-2 ml-auto space-x-2">
       <div>
-        <ion-text class="b14" >+ 40.12 ANT</ion-text>
-        <div>
-          <ion-text class="b14" style="color: var(--ion-color-icon);">08.14.2018</ion-text>
-        </div>
+        <p class="font-semibold text-xs text-black">Expiration Date</p>
+        <p class="text-xs text-gray-600">12/31/2022</p>
       </div>
-      <ion-text class="b14" >$1367.40</ion-text>
-    </div>
-    <div class="lines" style="margin: 15px 0;background-color: var(--ion-color-back);"></div>
-
-    <div class="list1" style="margin-right: 25px;">
       <div>
-        <ion-text class="b14" >+ 68.15 ANT</ion-text>
-        <div>
-          <ion-text class="b14" style="color: var(--ion-color-icon);">06.14.2018</ion-text>
-        </div>
+        <p class="font-semibold text-xs text-black">Following</p>
+        <p class="text-xs text-green-500">Yes</p>
       </div>
-      <ion-text class="b14" >$1122.90</ion-text>
     </div>
-    <div class="lines" style="margin: 15px 0;background-color: var(--ion-color-back);"></div>
-
-    <div class="list1" style="margin-right: 25px;">
-      <div>
-        <ion-text class="b14" >+ 190.5 ANT</ion-text>
-        <div>
-          <ion-text class="b14" style="color: var(--ion-color-icon);">05.01.2018</ion-text>
-        </div>
-      </div>
-      <ion-text class="b14" >$1015.39</ion-text>
-    </div>
-    <div class="lines" style="margin: 15px 0;background-color: var(--ion-color-back);margin-bottom: 0px;"></div>
-
   </div>
 
-  <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
-    <ng-template>
-      <div class="wrapper">
-        <div style="display: flex;align-items: center;flex-direction: column;">
-         <ion-icon name="checkmark-sharp" style="font-size: 31px;color:var(--ion-color-icon);"></ion-icon>
-        </div>
 
-        <div class="ion-text-center" style="margin-top: 20px;margin-bottom: 10px;">
-          <ion-text class="apptitle" style="color: var(--ion-color-primary);">Congrats!</ion-text>
-        </div>
-        <ion-text class="m14" style="display: block;text-align: center;">You did convert 0.6 ETH entire portfolio to 6533 CND</ion-text>
-
-        <ion-button (click)="close()"  expand="block" style="margin-top: 30px;">Continue</ion-button>
-
+  <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center">
+    <img src="https://dummyimage.com/50x50/ddd/000" alt="Student's Photo" class="rounded-full h-12 w-12 object-cover object-center mr-4">
+    <div>
+      <p class="text-lg font-bold text-black">John Doe</p>
+      <p class="text-sm text-gray-600">Active</p>
+    </div>
+    <div class="grid grid-cols-2 gap-2 ml-auto space-x-2">
+      <div>
+        <p class="font-semibold text-xs text-black">Expiration Date</p>
+        <p class="text-xs text-gray-600">12/31/2022</p>
       </div>
-    </ng-template>
-  </ion-modal>
-
+      <div>
+        <p class="font-semibold text-xs text-black">Following</p>
+        <p class="text-xs text-green-500">Yes</p>
+      </div>
+    </div>
+  </div>
 </ion-content>
