@@ -26,6 +26,10 @@
 @import "@ionic/angular/css/flex-utils.css";
 @import "./theme/fonts.scss";
 
+
+/* Tailwind SCSS */
+@import "./tailwind.css";
+
 * {
   // font-family: 'Times New Roman', Times, serif;
   font-family: SF-UI-Display-Regular;

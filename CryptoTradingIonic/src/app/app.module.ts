@@ -1,10 +1,11 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
+import { DatePipe, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { EffectsModule } from '@ngrx/effects';
@@ -18,6 +19,9 @@ import { ProfessorsEffects } from './store/professors/professors.effects';
 import { professorsReducer } from './store/professors/professors.reducer';
 import { SignalsEffects } from './store/signals/signals.effects';
 import { signalsReducer } from './store/signals/signals.reducer';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs, 'es-ES');
 @NgModule({
   declarations: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -38,7 +42,10 @@ import { signalsReducer } from './store/signals/signals.reducer';
     EffectsModule.forRoot([AuthEffects, ProfessorsEffects, SignalsEffects]),
     HttpClientModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: LOCALE_ID, useValue: 'es-ES' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { BalancePageRoutingModule } from './balance-routing.module';
 
 import { BalancePage } from './balance.page';
+import { DashboardComponentsModule } from '../../tabs/dashboard-components/dashboard-components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BalancePageRoutingModule
+    BalancePageRoutingModule,
   ],
   declarations: [BalancePage]
 })

@@ -12,61 +12,58 @@
     </ion-header>
     <div class="lines1"></div>
 
-    <ion-content style="background-color: var(--ion-color-bg);"  class="ion-padding" >
-  
-      <ion-text class="b12"  style="color: var(--ion-color-icon);">Cuenta Admin</ion-text>
-      <div (click)="closemenu5()" class="list"  style="margin-top: 10px;">
-        <ion-img src="../assets/image/s25.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Señales</ion-text>
+    <ion-content style="background-color: var(--ion-color-bg);" class="ion-padding">
+
+      <!-- Cuenta Admin -->
+      <ion-text class="b12 text-gray-800 font-semibold">Cuenta Admin</ion-text>
+
+      <!-- Señales -->
+      <div (click)="closemenu5()" class="list flex items-center p-2 mt-2 cursor-pointer hover:bg-gray-200 rounded">
+        <ion-icon name="stats-chart-outline" class="text-gray-700" style="font-size: 24px;"></ion-icon>
+        <ion-text class="b14 ml-3 text-gray-800">Señales</ion-text>
       </div>
-      <div (click)="closemenuHistorial()" class="list"  style="margin-top: 10px;">
-        <ion-img src="../assets/image/s25.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Historico</ion-text>
+
+      <div (click)="closemenu2()" class="list flex items-center p-2 mt-2 cursor-pointer hover:bg-gray-200 rounded">
+        <ion-icon name="stats-chart-outline" class="text-gray-700" style="font-size: 24px;"></ion-icon>
+        <ion-text class="b14 ml-3 text-gray-800">Mis Señales</ion-text>
       </div>
-      <div (click)="closemenu5()" class="list"  style="margin-top: 10px;">
-        <ion-img src="../assets/image/s25.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Profesores</ion-text>
+
+
+      <!-- Historial -->
+      <div (click)="closemenuHistorial()" class="list flex items-center p-2 mt-2 cursor-pointer hover:bg-gray-200 rounded">
+        <ion-icon name="time-outline" class="text-gray-700" style="font-size: 24px;"></ion-icon>
+        <ion-text class="b14 ml-3 text-gray-800">Historial</ion-text>
       </div>
-      <div (click)="closemenu5()" class="list"  style="margin-top: 10px;">
-        <ion-img src="../assets/image/s25.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Seguimiento</ion-text>
+
+      <!-- Profesores -->
+      <div (click)="closemenu4()" class="list flex items-center p-2 mt-2 cursor-pointer hover:bg-gray-200 rounded">
+        <ion-icon name="school-outline" class="text-gray-700" style="font-size: 24px;"></ion-icon>
+        <ion-text class="b14 ml-3 text-gray-800">Profesores</ion-text>
       </div>
-      <!-- <div (click)="closemenu5()" class="list"  style="margin-top: 10px;">
-        <ion-img src="../assets/image/s24.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Personal</ion-text>
+
+      <!-- Seguimiento -->
+      <div (click)="closemenu()" class="list flex items-center p-2 mt-2 cursor-pointer hover:bg-gray-200 rounded">
+        <ion-icon name="arrow-forward-outline" class="text-gray-700" style="font-size: 24px;"></ion-icon>
+        <ion-text class="b14 ml-3 text-gray-800">Seguimiento</ion-text>
       </div>
-      <div (click)="closemenu6()" class="list"  style="margin-top: 15px;">
-        <ion-img src="../assets/image/s24.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">INC</ion-text>
+
+          <!-- Estudiantes -->
+          <div (click)="closemenu3()" class="list flex items-center p-2 mt-2 cursor-pointer hover:bg-gray-200 rounded">
+            <ion-icon name="arrow-forward-outline" class="text-gray-700" style="font-size: 24px;"></ion-icon>
+            <ion-text class="b14 ml-3 text-gray-800">Estudiantes</ion-text>
+          </div>
+
+      <!-- More Section -->
+      <ion-text class="b12 text-gray-800 font-semibold mt-5">More</ion-text>
+
+      <!-- Settings -->
+      <div (click)="closemenu7()" class="list flex items-center p-2 mt-3 cursor-pointer hover:bg-gray-200 rounded">
+        <ion-icon name="settings-outline" class="text-gray-700" style="font-size: 24px;"></ion-icon>
+        <ion-text class="b14 ml-3 text-gray-800">Settings</ion-text>
       </div>
-      <div (click)="closemenu4()" class="list"  style="margin-top: 15px;">
-        <ion-img src="../assets/image/s24.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">USD Wallet</ion-text>
-      </div>
-      <div (click)="closemenu()"  class="list"  style="margin-top: 15px;">
-        <ion-img src="../assets/image/s25.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Multisig</ion-text>
-      </div>
-      <div (click)="closemenu1()" class="list"  style="margin-top: 15px;margin-bottom: 20px;">
-        <ion-img src="../assets/image/s25.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Vault</ion-text>
-      </div>
-      <ion-text class="b12"  style="color: var(--ion-color-icon);">Bitcoin</ion-text>
-      <div (click)="closemenu2()" class="list"  style="margin-top: 15px;">
-        <ion-img src="../assets/image/s26.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Buy</ion-text>
-      </div>
-      <div (click)="closemenu3()" class="list"  style="margin-top: 15px;margin-bottom: 20px;">
-        <ion-img src="../assets/image/s27.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Sell</ion-text>
-      </div>
-      <ion-text class="b12"  style="color: var(--ion-color-icon);">More</ion-text>
-      <div (click)="closemenu7()" class="list"  style="margin-top: 15px;">
-        <ion-img src="../assets/image/s28.png" style="height: 21px;width: 21px;"></ion-img>
-        <ion-text class="b14" style="margin-left: 15px;flex: 1;">Settings</ion-text>
-      </div> -->
 
     </ion-content>
+
   </ion-menu>
 
   <ion-router-outlet id="main-content"></ion-router-outlet>

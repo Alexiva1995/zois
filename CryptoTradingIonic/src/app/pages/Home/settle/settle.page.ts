@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { MenuController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-settle',
@@ -8,15 +8,20 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./settle.page.scss'],
 })
 export class SettlePage implements OnInit {
+  constructor(
+    private modalcontroller: ModalController,
+    public router: Router,
+    private menuCtrl: MenuController
+  ) {}
 
-  constructor(private modalcontroller:ModalController,public router:Router) { }
-  
-  close(){
+  close() {
     this.modalcontroller.dismiss();
     // this.router.navigate(['/tabs'])
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+  openmenu() {
+    this.menuCtrl.enable(true, 'main-Id');
+    this.menuCtrl.open('main-Id');
   }
-
 }
