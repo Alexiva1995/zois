@@ -1,138 +1,61 @@
-<ion-header [translucent]="false" style="box-shadow: none;">
-  <ion-toolbar color="bg" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
-    <ion-buttons slot="start" routerLink="/selectex">
-      <ion-img src="../../../../assets/image/a4.png" style="height: 21px;width: 21px;"></ion-img>
+<ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar
+    color="bg"
+    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+  >
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-img
+        src="../../../../assets/image/a2.png"
+        style="height: 21px; width: 21px"
+      ></ion-img>
     </ion-buttons>
-    <ion-label class="b14" style="text-align: center;display: block;"> Select exchange</ion-label>
-    <ion-icon id="open-modal6" name="time" slot="end" color="icon" style="font-size: 21px;"></ion-icon>
+    <ion-label class="b14" style="text-align: center; display: block">
+      Seguimiento</ion-label
+    >
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding" color="bg">
-  <div class="list1">
-    <ion-text class="title" style="display: block;text-align: center;">Wallet</ion-text>
-    <div id="open-modal5" style="height: 30px;width: 83px;background-color: var(--ion-color-back);justify-content: center;align-items: center;display: flex;border-radius: 15px;">
-      <ion-text class="b12" style="color: var(--ion-color-txt);">Transfer</ion-text>
+  <div class="bg-gray-900 text-white rounded-lg shadow-md p-4 mb-4">
+    <!-- Search bar -->
+    <div class="relative">
+      <input
+        type="text"
+        placeholder="Buscar profesor..."
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearchChange()"
+        class="w-full py-2 px-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:shadow-outline"
+      />
+      <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+        <i class="fas fa-search text-gray-400"></i>
+      </span>
     </div>
-  </div>
 
-  <div routerLink="/wallet1" class="box" style="padding: 20px 20px;margin-top: 20px;margin-right: 0;margin-left: 0;">
-    <div class="list">
-      <ion-img src="../../../../assets/image/a5.png" style="height: 56px;width: 56px;"></ion-img>
-      <div style="flex-direction: column;display: flex;flex: 1;margin-left: 15px;">
-      <div class="list1">
-        <ion-text class="b14">Aragon</ion-text>
-        <ion-text class="b14">$5750,70</ion-text>
-      </div>
-      <div class="list1" style="margin-top: 10px;">
-        <ion-text class="b12">ANT</ion-text>
-        <ion-text class="b12">1.0043</ion-text>
-      </div>
-      </div>
-    </div>
-  </div>
-
-  <div routerLink="/wallet1" class="box" style="padding: 20px 20px;margin-top: 20px;margin-right: 0;margin-left: 0;">
-    <div class="list">
-      <ion-img src="../../../../assets/image/a6.png" style="height: 56px;width: 56px;"></ion-img>
-      <div style="flex-direction: column;display: flex;flex: 1;margin-left: 15px;">
-      <div class="list1">
-        <ion-text class="b14">Bitcoin</ion-text>
-        <ion-text class="b14">$831,54</ion-text>
-      </div>
-      <div class="list1" style="margin-top: 10px;">
-        <ion-text class="b12">BTC</ion-text>
-        <ion-text class="b12">34.678</ion-text>
-      </div>
-      </div>
-    </div>
-  </div>
-
-  <div routerLink="/wallet1" class="box" style="padding: 20px 20px;margin-top: 20px;margin-right: 0;margin-left: 0;">
-    <div class="list">
-      <ion-img src="../../../../assets/image/a7.png" style="height: 56px;width: 56px;"></ion-img>
-      <div style="flex-direction: column;display: flex;flex: 1;margin-left: 15px;">
-        <div class="list1">
-          <ion-text class="b14">Ripple</ion-text>
-          <ion-text class="b14">$190,10</ion-text>
-        </div>
-        <div class="list1" style="margin-top: 10px;">
-          <ion-text class="b12">XRP</ion-text>
-          <ion-text class="b12">24.923</ion-text>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div routerLink="/wallet1" class="box" style="padding: 20px 20px;margin-top: 20px;margin-right: 0;margin-left: 0;">
-      <div class="list">
-        <ion-img src="../../../../assets/image/a8.png" style="height: 56px;width: 56px;"></ion-img>
-        <div style="flex-direction: column;display: flex;flex: 1;margin-left: 15px;">
-        <div class="list1" >
-          <ion-text class="b14">Dash</ion-text>
-          <ion-text class="b14">$12,00</ion-text>
-        </div>
-        <div class="list1" style="margin-top: 10px;">
-          <ion-text class="b12">DASH</ion-text>
-          <ion-text class="b12">1.0029</ion-text>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <ion-modal
-  cssClass="rbsheet"
-  trigger="open-modal5"
-  [initialBreakpoint]="0.45"
-  [breakpoints]="[0, 0.55]"
-  handleBehavior="cycle"
-  >
-  <ng-template>
-    <ion-content class="ion-padding" style="margin-bottom: 50px;">
-      <div class="ion-margin-top" >
-
-        <div class="list" style="height: 30px;width: 110px;background-color: var(--ion-color-back);justify-content: center;border-radius: 15px;">
-          <ion-icon name="arrow-back-outline" style="font-size: 14px;" color="icon"></ion-icon>
-          <ion-text class="b12" style="color: var(--ion-color-txt);margin-left: 5px;">Bank choice</ion-text>
-        </div>
-
-        <div style="justify-content: center;display: flex;margin: 40px 0;">
-          <div class="input"  color="bg" style="width: 40%;" >
-            <ion-input type="tel" placeholder="$1892" style="font-size: 39px;display: block;text-align: center;"></ion-input>
+    <!-- List of followed professors -->
+    <div class="mt-4">
+      <ul class="divide-y divide-gray-800">
+        <li *ngFor="let professor of filteredProfessors" class="py-2 flex items-center justify-between">
+          <div class="flex items-center">
+            <img
+              [src]="professor.profileImage"
+              class="h-10 w-10 rounded-full mr-4"
+              alt="Profile Picture"
+            />
+            <p class="text-sm font-semibold">{{ professor.name }}</p>
           </div>
-        </div>
-          
-        <ion-button (click)="close()" expand="block" style="margin: 20px 0;">Done</ion-button>
-        
+          <button
+            class="bg-blue-500 text-white font-bold py-1 px-2 rounded"
+            (click)="toggleFollow(professor)"
+          >
+            {{ professor.isFollowing ? 'Unfollow' : 'Follow' }}
+          </button>
+        </li>
+      </ul>
 
-      </div>
-    </ion-content>
-  </ng-template>
-  </ion-modal>
-
-  <ion-modal
-  cssClass="rbsheet"
-  trigger="open-modal6"
-  [initialBreakpoint]="0.45"
-  [breakpoints]="[0, 0.55]"
-  handleBehavior="cycle"
-  >
-  <ng-template>
-    <ion-content class="ion-padding" style="margin-bottom: 50px;">
-      <div class="ion-margin-top" >
-
-        <div class="ion-text-center">
-          <ion-text class="b14" style="color: var(--ion-color-icon);">Select schedule</ion-text>
-        </div>
-
-        <div style="margin: 20px 0;justify-content: center;display: flex;">
-          <ion-datetime presentation="month-year" style="width: 400px;"></ion-datetime>
-        </div>
-        <ion-button (click)="close()" expand="block" style="margin: 20px 0;">Done</ion-button>
-      
-      </div>
-    </ion-content>
-  </ng-template>
-  </ion-modal>
-
+      <!-- Message when no results are found -->
+      <p *ngIf="filteredProfessors.length === 0" class="text-sm text-gray-400 mt-2">
+        No se encontraron resultados.
+      </p>
+    </div>
+  </div>
 </ion-content>

@@ -1,0 +1,53 @@
+<div class="filter-popup max-w-sm rounded-lg overflow-hidden shadow-md bg-white m-0 p-6">
+  <div class="font-bold text-xl mb-2 text-gray-700">Filters</div>
+  <div class="flex flex-col">
+    <label for="orderType" class="text-gray-700 text-base">Order Type:</label>
+    <select
+      id="orderType"
+      name="orderType"
+      [(ngModel)]="filters.orderType"
+      class="block w-full mt-1 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black"
+    >
+      <option value="all" default>All</option>
+      <option value="buy">Buy</option>
+      <option value="sell">Sell</option>
+    </select>
+
+    <label for="educator" class="text-gray-700 text-base mt-4">Educator:</label>
+    <select
+      id="educator"
+      name="educator"
+      [(ngModel)]="filters.educator"
+      ngDefaultControl="johnDoe"
+      class="block w-full mt-1 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black"
+    >
+    <option value="">All</option>
+    <option value="johnDoe">John Doe</option>
+      <option value="janeSmith">Jane Smith</option>
+      <option value="alexJohnson">Alex Johnson</option>
+    </select>
+
+    <label for="dateRange" class="text-gray-700 text-base mt-4">Date Range:</label>
+    <input
+      type="date"
+      id="startDate"
+      name="startDate"
+      [(ngModel)]="filters.startDate"
+      class="block w-full mt-1 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black"
+    />
+    <input
+      type="date"
+      id="endDate"
+      name="endDate"
+      [(ngModel)]="filters.endDate"
+      class="block w-full mt-1 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black"
+    />
+
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+      (click)="applyFilters()"
+    >
+      Apply Filters
+    </button>
+  </div>
+</div>

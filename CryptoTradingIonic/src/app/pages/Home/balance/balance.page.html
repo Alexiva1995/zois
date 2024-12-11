@@ -1,74 +1,88 @@
-<ion-header [translucent]="false" style="box-shadow: none;">
-  <ion-toolbar color="bg" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
+<ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar
+    color="bg"
+    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+  >
     <ion-buttons slot="start" (click)="openmenu()">
-      <ion-img src="../../../../assets/image/a2.png" style="height: 21px;width: 21px;"></ion-img>
+      <ion-img
+        src="../../../../assets/image/a2.png"
+        style="height: 21px; width: 21px"
+      ></ion-img>
     </ion-buttons>
-    <ion-label class="b14" style="text-align: center;display: block;"> BTC Balance</ion-label>
-    <ion-icon name="scan-outline" slot="end" style="font-size: 21px;"></ion-icon>
+    <ion-label class="b14" style="text-align: center; display: block">
+      Señales diarias</ion-label
+    >
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="main-content" [fullscreen]="true" class="ion-padding" color="bg">
-  <ion-text class="title" style="display: block;text-align: center;">$3,519.23</ion-text>
-  <div class="list" style="justify-content: center;margin-top: 10px;">
-    <div style="background-color: var(--ion-color-box);border-radius: 15px;width: 83px;height: 30px;align-items: center;justify-content: center;display: flex;">
-      <ion-text class="b12">281.32 BTC</ion-text>
-    </div>
+<ion-content
+  id="main-content"
+  [fullscreen]="true"
+  class="ion-padding"
+  color="bg"
+>
+<div class="bg-white rounded-lg shadow-lg p-4 mb-6 flex flex-col md:flex-row items-start md:items-center">
+  <!-- Foto y Nombre del Profesor -->
+  <div class="flex items-center mb-4 md:mb-0 md:mr-6">
+    <img src="https://via.placeholder.com/50" alt="Professor's Photo" class="rounded-full h-14 w-14 md:h-16 md:w-16 object-cover object-center mr-4">
+    <p class="text-lg font-semibold text-gray-800">Profesor Juan</p>
   </div>
-  
-  <div class="box" style="padding: 20px 20px;margin-top: 20px;margin-right: 0;margin-left: 0;">
-    <div class="list1">
+
+  <div class="flex-1">
+    <!-- Nombre de la Señal -->
+    <p class="text-xl font-bold text-gray-800 mb-2">Señal A</p>
+
+    <!-- Imagen de la Señal -->
+    <img src="https://via.placeholder.com/150" alt="Signal Image" class="rounded-lg h-40 w-full object-cover object-center mb-4">
+
+    <!-- Datos clave -->
+    <div class="grid grid-cols-2 gap-3 md:gap-6 text-sm text-gray-700">
       <div>
-        <ion-text class="b14">BTC</ion-text>
-        <div>
-          <ion-text class="b12" >231.32</ion-text>
-        </div>
+        <p class="font-semibold text-gray-600">Buy Limit</p>
+        <p class="text-gray-800">1.1234</p>
       </div>
-      <ion-text class="b14" >$2,893.81</ion-text>
-    </div>
-    <div class="lines" style="background-color: #2E3546;margin: 15px -20px;"></div>
-    <div class="list1">
       <div>
-        <ion-text class="b14">ETH</ion-text>
-        <div>
-          <ion-text class="b12" >50 BTC In 4 mo, 28d</ion-text>
-        </div>
+        <p class="font-semibold text-gray-600">Sell Limit</p>
+        <p class="text-gray-800">1.2345</p>
       </div>
-      <ion-text class="b14" >$625.42</ion-text>
+      <div>
+        <p class="font-semibold text-gray-600">Buy Stop</p>
+        <p class="text-gray-800">1.3456</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-600">Sell Stop</p>
+        <p class="text-gray-800">1.4567</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-600">Stop Loss</p>
+        <p class="text-gray-800">1.5678</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-600">Take Profit</p>
+        <p class="text-gray-800">1.6789</p>
+      </div>
+    </div>
+
+    <!-- Instrucciones -->
+    <p class="font-semibold text-gray-600 mt-2">Instrucciones:</p>
+    <p class="text-sm text-gray-600 w-full md:w-2/3">Comprar cuando alcance el Buy Limit. Vigilar el Stop Loss.</p>
+
+    <!-- Estadísticas -->
+    <div class="grid grid-cols-2 gap-4 mt-4 text-sm text-gray-600">
+      <div>
+        <p class="font-semibold text-gray-700">Daily Average</p>
+        <p class="text-gray-800">5</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-700">Total Signals</p>
+        <p class="text-gray-800">150</p>
+      </div>
     </div>
   </div>
-
-  <div class="list1" style="margin-top: 20px;">
-    <ion-text class="m12">$12.51 USD</ion-text>
-    <ion-text class="m12" style="color: #00C873;">+5.89%</ion-text>
-  </div>
-
-  <div class="list1" style="margin-top: 10px;">
-    <ion-text class="m12">0.0012474373 BTC</ion-text>
-    <ion-text class="m12" style="color: #00C873;">+7.22%</ion-text>
-  </div>
-
-  <ion-img src="../../../../assets/image/a3.png" style="margin: 20px 0;"></ion-img>
-
-  <div class="list1" style="margin-top: 20px;">
-    <ion-text class="m12">24H Vol:</ion-text>
-    <ion-text class="m12" style="color: #00C873;">$ 886BT USD</ion-text>
-  </div>
-
-  <div class="list1" style="margin-top: 10px;">
-    <ion-text class="m12">Market Cap:</ion-text>
-    <ion-text class="m12" style="color: #00C873;">$ 7.034B USD</ion-text>
-  </div>
-
-  <div class="list" style="justify-content: space-around;margin: 15px 0;">
-    <ion-text class="b12" style="color: #3E475A;">1D</ion-text>
-    <ion-text class="b12" style="color: #3E475A;">3D</ion-text>
-    <div style="background-color: #2E3546;border-radius: 15px;height: 30px;width: 40px;align-items: center;justify-content: center;display: flex;">
-      <ion-text class="b12" style="color: #FFFFFF;">1W</ion-text>
-    </div>
-    <ion-text class="b12" style="color: #3E475A;">1M</ion-text>
-    <ion-text class="b12" style="color: #3E475A;">3M</ion-text>
-    <ion-text class="b12" style="color: #3E475A;">1Y</ion-text>
-  </div>
-
+</div>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="openFilters($event)">
+    <ion-icon name="filter-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 </ion-content>

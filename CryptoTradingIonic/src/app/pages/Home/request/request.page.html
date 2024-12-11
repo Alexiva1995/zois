@@ -1,54 +1,95 @@
-<ion-header [translucent]="false" style="box-shadow: none;">
-  <ion-toolbar color="bg" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
-    <ion-buttons slot="start" routerLink="/tabs">
-      <ion-icon name="arrow-back-outline" style="font-size: 24px;" ></ion-icon>
+<ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar
+    color="bg"
+    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+  >
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-img
+        src="../../../../assets/image/a2.png"
+        style="height: 21px; width: 21px"
+      ></ion-img>
     </ion-buttons>
-    <ion-label class="b14" style="text-align: center;display: block;">Request Payment</ion-label>
+    <ion-label class="b14" style="text-align: center; display: block">
+      Mis Señales</ion-label
+    >
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding" color="bg">
-
-  <div style="margin-top: 50px;margin-bottom: 30px;">
-    <ion-img src="../../../../assets/image/a9.png" style="width: 100%;height: 170px;"></ion-img>
+<ion-content
+  id="main-content"
+  [fullscreen]="true"
+  class="ion-padding"
+  color="bg"
+>
+<div class="bg-white rounded-lg shadow-lg p-4 mb-6 flex flex-col md:flex-row items-start md:items-center">
+  <!-- Foto y Nombre del Profesor -->
+  <div class="flex items-center mb-4 md:mb-0 md:mr-6">
+    <img src="https://via.placeholder.com/50" alt="Professor's Photo" class="rounded-full h-14 w-14 md:h-16 md:w-16 object-cover object-center mr-4">
+    <p class="text-lg font-semibold text-gray-800">Profesor Juan</p>
   </div>
 
-  <div class="ion-text-center" style="margin-bottom: 50px;">
-    <ion-text class="b14" style="color: var(--ion-color-txt);">12OlPju8xoWi380askpoqlSLx2a012kkn</ion-text>
-  </div>
+  <div class="flex-1">
+    <!-- Nombre de la Señal -->
+    <p class="text-xl font-bold text-gray-800 mb-2">Señal A</p>
 
-  <div class="list">
-    <div style="flex: 1;">
-      <ion-text class="b14" style="color: var(--ion-color-icon);">BTC</ion-text>
-      <div class="input"  color="bg">
-        <ion-input type="txt" placeholder="0.2" ></ion-input>
-      </div>
-    </div>
-    <div style="flex: 1;margin-left: 20px;">
-      <ion-text class="b14" style="color: var(--ion-color-icon);">USD</ion-text>
-      <div class="input"  color="bg">
-        <ion-input type="email" placeholder="$1,920.78" ></ion-input>
-      </div>
-    </div>
-  </div>
+    <!-- Imagen de la Señal -->
+    <img src="https://via.placeholder.com/150" alt="Signal Image" class="rounded-lg h-40 w-full object-cover object-center mb-4">
 
-  <div style="margin-top: 20px;">
-    <ion-text class="b14" style="color: var(--ion-color-icon);">TO</ion-text>
-  </div>
-
-  <div class="box list" style="padding: 15px 15px;margin-top: 20px;margin-right: 0;margin-left: 0;margin-bottom: 30px;">
-    <ion-img src="../../../../assets/image/a6.png" style="height: 56px;width: 56px;"></ion-img>
-    <div  style="margin-left: 15px;flex:1">
+    <!-- Datos clave -->
+    <div class="grid grid-cols-2 gap-3 md:gap-6 text-sm text-gray-700">
       <div>
-        <ion-text class="b14">Bitcoin</ion-text>
-        <div>
-          <ion-text class="b12" style="color: var(--ion-color-icon);">BTC</ion-text>
-        </div>
+        <p class="font-semibold text-gray-600">Buy Limit</p>
+        <p class="text-gray-800">1.1234</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-600">Sell Limit</p>
+        <p class="text-gray-800">1.2345</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-600">Buy Stop</p>
+        <p class="text-gray-800">1.3456</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-600">Sell Stop</p>
+        <p class="text-gray-800">1.4567</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-600">Stop Loss</p>
+        <p class="text-gray-800">1.5678</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-600">Take Profit</p>
+        <p class="text-gray-800">1.6789</p>
       </div>
     </div>
-    <ion-icon name="chevron-forward-outline" color="icon" style="font-size: 21px;"></ion-icon>
+
+    <!-- Instrucciones -->
+    <p class="font-semibold text-gray-600 mt-2">Instrucciones:</p>
+    <p class="text-sm text-gray-600 w-full md:w-2/3">Comprar cuando alcance el Buy Limit. Vigilar el Stop Loss.</p>
+
+    <!-- Estadísticas -->
+    <div class="grid grid-cols-2 gap-4 mt-4 text-sm text-gray-600">
+      <div>
+        <p class="font-semibold text-gray-700">Daily Average</p>
+        <p class="text-gray-800">5</p>
+      </div>
+      <div>
+        <p class="font-semibold text-gray-700">Total Signals</p>
+        <p class="text-gray-800">150</p>
+      </div>
+    </div>
   </div>
-
-  <ion-button routerLink="/tabs" expand="block" style="margin: 20px 0;">Request Payment</ion-button>
-
+</div>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="openAddSignalModal()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 </ion-content>
+
+
+<ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()">
+  <ng-template>
+    <app-add-signal-modal (close)="closeModal()" (signalAdded)="handleSignalAdded($event)"></app-add-signal-modal>
+  </ng-template>
+</ion-modal>

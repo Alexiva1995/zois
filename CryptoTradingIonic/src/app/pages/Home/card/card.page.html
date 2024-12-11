@@ -1,94 +1,73 @@
-<ion-header [translucent]="false" style="box-shadow: none;">
-  <ion-toolbar color="bg" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
+<ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar
+    color="bg"
+    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+  >
     <ion-buttons slot="start" (click)="openmenu()">
-      <ion-img src="../../../../assets/image/a13.png" style="height: 21px;width: 21px;"></ion-img>
+      <ion-img
+        src="../../../../assets/image/a2.png"
+        style="height: 21px; width: 21px"
+      ></ion-img>
     </ion-buttons>
-    <div style="justify-content: center;display: flex;">
-      <ion-img src="../../../../assets/image/a14.png" style="height: 18px;width: 24px;"></ion-img>
-    </div>
-    <ion-icon name="card" slot="end" style="font-size: 21px;"></ion-icon>
+    <ion-label class="b14" style="text-align: center; display: block">
+      Profesores</ion-label
+    >
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="main-content" [fullscreen]="true" class="ion-padding" color="bg">
 
-    <div style="display: flex;justify-content: center;">
-      <div class="div1" style="margin-top: 15px;">
-        <div style="display: flex;justify-content: flex-end;">
-          <ion-icon name="close" style="font-size: 21px;color: var(--ion-color-icon);"></ion-icon>
-        </div>
-        <div class="ion-text-center" style="margin: 20px;">
-          <ion-text class="b14" >Begin your 6 month holding period</ion-text>
-        </div>
-        <div class="ion-text-center">
-          <ion-text class="b14" style="color: var(--ion-color-primary);" >Lock up your Chain now</ion-text>
-        </div>
-      </div>
-    </div>
 
-  <ion-text class="b14" style="color: var(--ion-color-icon);">Cryptocurrency</ion-text>
 
-  <div class="list1" style="margin-top: 20px;">
-    <ion-text class="title">$2,564.95</ion-text>
-    <div class="btn" >
-      <ion-icon name="add"></ion-icon>
-    </div>
+
+<ion-content
+  id="main-content"
+  [fullscreen]="true"
+  class="ion-padding"
+  color="bg"
+>
+<div class="bg-white rounded-lg shadow-md p-4 mb-4">
+  <!-- Search Input -->
+  <div class="relative">
+    <input
+      type="text"
+      placeholder="Buscar profesor..."
+      class="w-full py-2 px-4 rounded-lg bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
+      [(ngModel)]="searchTerm"
+      (input)="filterProfessors()"
+    />
+    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+      <i class="fas fa-search text-gray-400"></i>
+    </span>
   </div>
 
-  <div style="margin-top: 5px;">
-    <ion-text class="b12" style="color: var(--ion-color-green);">+8.64%</ion-text>
-    <ion-text class="b12" style="color: var(--ion-color-green);margin-left: 20px;">+$220.85</ion-text>
+  <!-- Search Results -->
+  <div class="mt-3">
+    <ul class="divide-y divide-gray-200">
+      <li *ngFor="let professor of filteredProfessors" class="py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <img
+            [src]="professor.photo"
+            alt="Professor's Photo"
+            class="rounded-full h-10 w-10 object-cover"
+          />
+          <div>
+            <p class="text-sm font-semibold text-black">{{ professor.name }}</p>
+            <p class="text-xs text-gray-500">{{ professor?.role }}</p>
+          </div>
+        </div>
+        <button
+          (click)="toggleFollow(professor)"
+          class="text-sm font-semibold text-blue-500 hover:text-blue-700 py-1 px-3 rounded-md bg-transparent border border-blue-500 hover:bg-blue-100 transition"
+        >
+          {{ professor.isFollowing ? 'Unfollow' : 'Follow' }}
+        </button>
+      </li>
+    </ul>
+
+    <!-- Mensaje cuando no se encuentran resultados -->
+    <p *ngIf="filteredProfessors.length === 0" class="text-sm text-gray-600 mt-2 text-center">
+      No se encontraron resultados.
+    </p>
   </div>
-
-  <div style="margin-top: 30px;margin-bottom: 15px;">
-    <ion-text class="b14" style="color: var(--ion-color-icon);">Wallets</ion-text>
-  </div>
-
-  <div class="box" style="padding: 25px 0;padding-left: 20px;margin-top: 20px;border-top: 0;padding-right: 25px;">
-
-    <div class="list">
-      <ion-img src="../../../../assets/image/a6.png" style="height: 56px;width: 56px;"></ion-img>
-      <div style="flex-direction: column;display: flex;flex: 1;margin-left: 15px;">
-      <div class="list1">
-        <ion-text class="b14">Bitcoin</ion-text>
-        <ion-text class="b14">$831,54</ion-text>
-      </div>
-      <div class="list1" style="margin-top: 10px;">
-        <ion-text class="b12">BTC</ion-text>
-        <ion-text class="b12">34.678</ion-text>
-      </div>
-      </div>
-    </div>
-    <div class="lines" style="margin: 15px 0;background-color: var(--ion-color-back);"></div>
-
-    <div class="list">
-      <ion-img src="../../../../assets/image/a7.png" style="height: 56px;width: 56px;"></ion-img>
-      <div style="flex-direction: column;display: flex;flex: 1;margin-left: 15px;">
-        <div class="list1">
-          <ion-text class="b14">Ripple</ion-text>
-          <ion-text class="b14">$190,10</ion-text>
-        </div>
-        <div class="list1" style="margin-top: 10px;">
-          <ion-text class="b12">XRP</ion-text>
-          <ion-text class="b12">24.923</ion-text>
-        </div>
-      </div>
-    </div>
-    <div class="lines" style="margin: 15px 0;background-color: var(--ion-color-back);"></div>
-
-    <div class="list" >
-      <ion-img src="../../../../assets/image/a8.png" style="height: 56px;width: 56px;"></ion-img>
-      <div style="flex-direction: column;display: flex;flex: 1;margin-left: 15px;">
-        <div class="list1" >
-          <ion-text class="b14">Dash</ion-text>
-          <ion-text class="b14">$12,00</ion-text>
-        </div>
-        <div class="list1" style="margin-top: 10px;">
-          <ion-text class="b12">DASH</ion-text>
-          <ion-text class="b12">1.0029</ion-text>
-        </div>
-      </div>
-    </div>
-    
-  </div>
+</div>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, PopoverController } from '@ionic/angular';
+import { FilterModalComponent } from 'src/app/shared-components/filter-modal/filter-modal.component';
 
 @Component({
   selector: 'app-balance',
@@ -7,15 +8,25 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./balance.page.scss'],
 })
 export class BalancePage implements OnInit {
+  constructor(
+    private menuCtrl: MenuController,
+    private popoverCtrl: PopoverController
+  ) {}
 
-  constructor(private menuCtrl: MenuController) { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  openmenu(){
-    this.menuCtrl.enable(true,'main-Id');
+  openmenu() {
+    this.menuCtrl.enable(true, 'main-Id');
     this.menuCtrl.open('main-Id');
   }
 
+  async openFilters(event: any) {
+    const popover = await this.popoverCtrl.create({
+      component: FilterModalComponent,
+      event: event,
+      translucent: true,
+    });
+
+    await popover.present();
+  }
 }
