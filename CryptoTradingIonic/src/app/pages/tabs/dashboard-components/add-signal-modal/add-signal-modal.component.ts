@@ -51,4 +51,6 @@ export class AddSignalModalComponent {
       this.signalAdded.emit(signalData);
     }
   }
+
+
 }

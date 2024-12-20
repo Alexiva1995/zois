@@ -1,13 +1,4 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
+
 
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
@@ -310,4 +301,37 @@ ion-toolbar {
   margin-top: -8px;
   color: var(--ion-color-txt);
   font-family: SF-UI-Display-Semibold;
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 400px;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    max-height: 400px;
+  }
+  to {
+    max-height: 0;
+  }
+}
+
+.dropdown-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+
+  &.hidden {
+    max-height: 0;
+    animation: slideUp 0.3s ease-in-out forwards;
+  }
+
+  &:not(.hidden) {
+    max-height: 200px;
+    animation: slideDown 0.3s ease-in-out forwards;
+  }
 }
