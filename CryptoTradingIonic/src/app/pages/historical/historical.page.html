@@ -1,8 +1,5 @@
-<ion-header [translucent]="false" style="box-shadow: none">
-  <ion-toolbar
-    color="bg"
-    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
-  >
+<ion-header [translucent]="false" style="box-shadow: none;">
+  <ion-toolbar color="bg" style="padding: 0px 15px;--border-width: 0 0;padding-top: 10px;">
     <ion-buttons slot="start" (click)="openmenu()">
       <ion-img
         src="../../../../assets/image/a2.png"
@@ -10,46 +7,114 @@
       ></ion-img>
     </ion-buttons>
     <ion-label class="b14" style="text-align: center; display: block">
-      Historial</ion-label
-    >
+      Historial</ion-label>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-  <ion-list class="bg-transparent space-y-4">
-    <div
-      class="max-w-sm mx-auto p-4 mx-4 bg-white rounded-lg shadow-md flex items-center space-x-4"
-      *ngFor="let signal of signals"
-    >
-      <div class="flex-shrink-0">
-        <img
-          class="w-16 h-16 rounded-full"
-          src="https://dummyimage.com/80x80/ddd/000"
-          alt="Educator Image"
-        />
+  <ion-text class="apptitle" style="font-size: 28px;">Historial</ion-text>
+
+  <div class="list" style="margin-top: 15px;">
+    <div style="margin-right: 5px;height: 35px;flex: 1;flex-direction: row;align-items: center;display: flex;border-radius: 10px;background-color: var(--ion-color-box);padding-left: 5px;">
+      <ion-icon name="search-outline" style="font-size: 17px;color: var(--ion-color-icon);"></ion-icon>
+      <ion-input placeholder="Search" type="text" style="margin-left: 10px;"></ion-input>
+    </div>
+    <div class="flex items-center h-9 bg-[var(--ion-color-box)] rounded-lg ml-1 px-2 w-20">
+      <ion-select
+        interface="popover"
+        class="flex-1 text-[14px] text-white bg-transparent border-none focus:outline-none appearance-none"
+        placeholder="Sort"
+        style="--icon-only: true;"
+      >
+        <ion-select-option class="text-white" value="market-cap">Sort</ion-select-option>
+        <ion-select-option class="text-white" value="asc">New</ion-select-option>
+        <ion-select-option class="text-white" value="desc">Old</ion-select-option>
+      </ion-select>
+      <ion-icon name="swap-vertical" class="text-[17px] text-[var(--ion-color-icon)]"></ion-icon>
+    </div>
+  </div>
+
+  <div *ngFor="let signal of signals; let i = index">
+    <div [id]="'open-modal' + i" class="list-item">
+      <div class="item-content">
+        <ion-text class="b14">{{ signal.pair }}</ion-text>
+        <div class="subtext">
+          <ion-text class="b12 subtext-color">{{ signal.type }}</ion-text>
+        </div>
       </div>
-      <div>
-        <div class="font-bold text-lg text-gray-900">{{signal.asset}}</div>
-        <div class="text-gray-700 text-base">
-          <p>
-            Order Type:
-            <span
-              [ngClass]="{
-          'text-green-500': signal.orderType === 'buy',
-          'text-red-500': signal.orderType === 'sell',
-          'text-bold': true
-        }"
-              >{{signal.orderType | uppercase}}</span
-            >
-          </p>
-          <p>Entry Price: {{signal.entryPrice}}</p>
-          <p>Educator: {{signal.educator}}</p>
-          {{ signal.dateTime | date: 'fullDate' }} a las {{ signal.dateTime | date: 'shortTime' }}
+      <div class="item-details">
+        <ion-text class="b14">{{ signal.entryPrice }}</ion-text>
+        <div class="subtext">
+          <ion-text class="b12" [ngClass]="{'green-text': signal.type === 'Buy', 'red-text': signal.type === 'Sell'}">
+            {{ signal.status }}
+          </ion-text>
+        </div>
+        <div class="subtext">
+          <ion-text class="b12 subtext-color">{{ signal.date | date }}</ion-text>
         </div>
       </div>
     </div>
-  </ion-list>
+    <div class="divider"></div>
+
+    <ion-modal
+      [cssClass]="'rbsheet'"
+      [trigger]="'open-modal' + i"
+      [initialBreakpoint]="0.9"
+      [breakpoints]="[0, 1]"
+      handleBehavior="cycle"
+    >
+      <ng-template>
+        <ion-content class="ion-padding">
+          <ion-img src="../../../../assets/image/s21.png" style="height: 35px;width: 26px;"></ion-img>
+
+          <div class="div1" style="margin-top: 10px;">
+            <ion-text class="apptitle" style="font-size: 28px;">{{ signal.pair }}</ion-text>
+            <ion-text class="b14 mx-4" style="color: var(--ion-color-green);">{{ signal.entryPrice }}</ion-text>
+            <div style="flex: 1; justify-content: flex-end; display: flex; flex-direction: column;">
+              <div class="list" style="justify-content: space-between;">
+                <div
+                  style="height: 30px; width: 63px; border-radius: 20px; justify-content: center; align-items: center; display: flex; background-color: var(--ion-color-green);">
+                  <ion-text class="b12" style="color: #fff; font-size: 11px;">{{ signal.type }}</ion-text>
+                </div>
+                <div
+                  style="height: 30px; width: 83px; border-radius: 20px; justify-content: center; align-items: center; display: flex; background-color: var(--ion-color-green); flex-direction: row;">
+                  <ion-icon name="arrow-up" style="font-size: 14px; color: #fff;"></ion-icon>
+                  <ion-text class="b12" style="color: #fff; font-size: 11px; margin-left: 7px;">
+                    {{ signal.riskRewardRatio }}
+                  </ion-text>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="list1" style="margin-top: 20px;">
+            <ion-text class="m14" style="color: var(--ion-color-icon);">Stop Loss</ion-text>
+            <ion-text class="m14">{{ signal.stopLoss }}</ion-text>
+          </div>
+          <div class="lines" style="margin-top: 15px; background-color: #2E3546;"></div>
+
+          <div class="list1" style="margin-top: 15px;">
+            <ion-text class="m14" style="color: var(--ion-color-icon);">Take Profit</ion-text>
+            <ion-text class="m14">{{ signal.takeProfit.join(', ') }}</ion-text>
+          </div>
+          <div class="lines" style="margin-top: 15px; background-color: #2E3546;"></div>
+
+          <div class="list1" style="margin-top: 15px;">
+            <ion-text class="m14" style="color: var(--ion-color-icon);">Reason</ion-text>
+            <ion-text class="m14 w-32 relativo right-0">{{ signal.reason }}</ion-text>
+          </div>
+          <div class="lines" style="margin-top: 15px; background-color: #2E3546;"></div>
+
+          <div class="list1" style="margin-top: 15px;">
+            <ion-text class="m14" style="color: var(--ion-color-icon);">Date</ion-text>
+            <ion-text class="m14">{{ signal.date | date: 'short' }}</ion-text>
+          </div>
+          <div class="lines" style="margin: 15px 0; background-color: #2E3546;"></div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </div>
 
 
 </ion-content>

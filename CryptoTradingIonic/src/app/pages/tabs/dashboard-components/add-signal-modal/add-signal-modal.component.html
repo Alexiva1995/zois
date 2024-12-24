@@ -3,20 +3,19 @@
     color="bg"
     style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
   >
-    <ion-label class="b14" style="text-align: center; display: block">
-      Agregar señal</ion-label
+    <ion-label class="b14 uppercase" style="text-align: center; display: block">
+      Agregar Señal</ion-label
     >
-    <button (click)="closeModal()">
-      <ion-icon
-        name="close"
-        slot="end"
-        style="font-size: 21px"
-      ></ion-icon>
-    </button>
+    <ion-buttons slot="end" (click)="closeModal()">
+      <ion-icon name="close"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content   id="main-content"
+[fullscreen]="true"
+class="ion-padding"
+color="bg">
   <ion-scroll>
     <form [formGroup]="signalForm" (ngSubmit)="submit()">
       <ion-list lines="inset">
@@ -83,41 +82,13 @@
           ></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="border-none">
           <ion-label position="stacked">Instrucciones</ion-label>
           <ion-textarea
             formControlName="instructions"
+            type="textarea"
             placeholder="Ingrese las instrucciones"
           ></ion-textarea>
-        </ion-item>
-
-        <ion-item>
-          <ion-label position="stacked">Subir Imagen</ion-label>
-          <ion-button
-            color="primary"
-            expand="block"
-            (click)="fileInput.click()"
-            class="center-button"
-          >
-            <ion-icon slot="start" name="image-outline"></ion-icon>
-            Seleccionar Imagen
-          </ion-button>
-
-          <input
-            type="file"
-            #fileInput
-            hidden
-            accept="image/*"
-            (change)="onFileChange($event)"
-          />
-
-          <div *ngIf="imagePreview" class="image-container">
-            <img
-              [src]="imagePreview"
-              alt="Imagen cargada"
-              class="image-preview"
-            />
-          </div>
         </ion-item>
       </ion-list>
 
