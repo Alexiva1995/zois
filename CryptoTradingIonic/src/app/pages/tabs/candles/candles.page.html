@@ -1,85 +1,67 @@
-<ion-header [translucent]="false" style="box-shadow: none;">
-  <ion-toolbar color="bg" style="padding: 0px 15px;--border-width: 0 0;padding-top: 10px;">
-    <ion-buttons slot="start" (click)="openmenu()">
-      <ion-icon name="menu" style="font-size: 24px;color: var(--ion-color-icon);"></ion-icon>
-    </ion-buttons>
-    <ion-buttons slot="end" id="open-modal10">
-      <ion-icon name="notifications" style="font-size: 24px;color: var(--ion-color-icon);"></ion-icon>
-    </ion-buttons>
-    <ion-title class="b14" style="color: #fff;text-align: center;">Bitcon, BTC</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true" id="main-content">
-  
-  <!-- <div style="display: flex;justify-content: flex-end; position: fixed;transform: translate3d(0,0,0);top: 60px;right: 0;">
-    <ion-img src="../../../../assets/image/s7.png" style="height: 170px;"></ion-img>
+<ion-content>
+  <div class="bg-black w-full flex flex-col items-center justify-center py-4 border-b-2 border-primary">
+    <img src="https://dummyimage.com/100x100/ddd/000" alt="Avatar" class="rounded-full">
+    <p class="text-white text-sm mt-4 title">John Doe</p>
   </div>
+  <ion-list class="bg-black">
+    <ion-list-header class="text-sm color-title"> Mis Señales </ion-list-header>
+    <div *ngFor="let signal of signals" class="bg-black text-white px-6">
+      <div>
+        <div class="flex justify-between items-center mt-2 text-white">
+          <div class="text-left">
+            <span class="font-semibold">USD/EUR</span>
+            <p class="text-blue-300 font-bold">{{ signal.date }}</p>
+          </div>
+          <div class="text-left">
+            <span class="font-semibold">Market</span>
+            <p class="text-green-400 text-xs">{{ signal.status }}</p>
+          </div>
+          <div class="text-right">
+            <span class="font-semibold">Buy Limit</span>
+            <p class="text-xs text-green-400">{{ signal.buyLimit }}</p>
+          </div>
 
-    <div class="list" style="margin: 20px;">
-      <div style="flex: 1;">
-        <ion-text class="apptitle">$<ion-text class="title">6,703</ion-text><ion-text class="apptitle">.80</ion-text></ion-text>
-      </div>
-      <ion-img src="../../../../assets/image/s13.png" style="height: 13px;width: 13px;margin-right: 3px;"></ion-img>
-      <ion-text class="b14" style="color: var(--ion-color-green);">29,71%</ion-text>
-    </div>
-    <div class="list" style="margin: 15px;justify-content: space-evenly;">
-      <ion-text class="b12" style="color: #3E475A;">1D</ion-text>
-      <ion-text class="b12" style="color: #3E475A;">3D</ion-text>
-      <div style="height: 30px;width: 40px;border-radius: 20px;justify-content: center;align-items: center;display: flex;background-color: var(--ion-color-back);">
-        <ion-text class="b12" style="color: #fff;">3W</ion-text>
-      </div>
-      <ion-text class="b12" style="color: #3E475A;">1M</ion-text>
-      <ion-text class="b12" style="color: #3E475A;">3M</ion-text>
-      <ion-text class="b12" style="color: #3E475A;">1Y</ion-text>
-    </div>
-    <div style="margin-right: 20px;margin-bottom: 70px;">
-      <ion-img src="../../../../assets/image/s14.png" ></ion-img>
-    </div>
-
-    <ion-modal
-    cssClass="rbsheet"
-    trigger="open-modal10"
-    [initialBreakpoint]="0.45"
-    [breakpoints]="[0, 0.55]"
-    handleBehavior="cycle"
-    >
-    <ng-template>
-      <ion-content class="ion-padding" style="margin-bottom: 50px;">
-        <div class="ion-margin-top" >
-  
-          <div >
-            <ion-text class="apptitle" style="color: var(--ion-color-txt);">Notifications</ion-text>
+          <div class="text-right">
+            <span class="font-semibold">Buy Stop</span>
+            <p class="text-xs text-red-500">{{ signal.buyStop }}</p>
           </div>
-  
-          <div class="list1" style="margin-top:20px;">
-            <ion-text class="m14">Push-notifications</ion-text>
-            <ion-toggle [checked]="true"></ion-toggle>
-          </div>
-          <div class="lines" style="background-color:var(--ion-color-back) ;margin: 15px 0;"></div>
-  
-          <div class="list1">
-            <ion-text class="m14">End of the day</ion-text>
-            <ion-toggle [checked]="false"></ion-toggle>
-          </div>
-          <div class="lines" style="background-color:var(--ion-color-back) ;margin: 15px 0;"></div>
-  
-          <div class="list1">
-            <ion-text class="m14">New release available</ion-text>
-            <ion-toggle [checked]="true"></ion-toggle>
-          </div>
-          <div class="lines" style="background-color:var(--ion-color-back) ;margin: 15px 0;"></div>
-  
-          <div class="list1">
-            <ion-text class="m14">Other notifications</ion-text>
-            <ion-toggle [checked]="false"></ion-toggle>
-          </div>
-          <div class="lines" style="background-color:var(--ion-color-back) ;margin: 15px 0;"></div>
         </div>
-      </ion-content>
-    </ng-template>
-    </ion-modal> -->
-    <app-dashboard-professors></app-dashboard-professors>
-    <!-- <app-dashboard-signals></app-dashboard-signals> -->
+        <div
+          class="lines"
+          style="margin: 15px 0; background-color: #2e3546"
+        ></div>
+      </div>
+    </div>
+  </ion-list>
 
+  <ion-list class="bg-black">
+    <ion-list-header class="text-sm color-title"> Estudiantes Recientes</ion-list-header>
+    <div *ngFor="let signal of signals" class="bg-black text-white px-6">
+      <div>
+        <div class="flex justify-between items-center mt-2 text-white">
+          <div class="text-left">
+            <span class="font-semibold">USD/EUR</span>
+            <p class="text-blue-300 font-bold">{{ signal.date }}</p>
+          </div>
+          <div class="text-left">
+            <span class="font-semibold">Market</span>
+            <p class="text-green-400 text-xs">{{ signal.status }}</p>
+          </div>
+          <div class="text-right">
+            <span class="font-semibold">Buy Limit</span>
+            <p class="text-xs text-green-400">{{ signal.buyLimit }}</p>
+          </div>
+
+          <div class="text-right">
+            <span class="font-semibold">Buy Stop</span>
+            <p class="text-xs text-red-500">{{ signal.buyStop }}</p>
+          </div>
+        </div>
+        <div
+          class="lines"
+          style="margin: 15px 0; background-color: #2e3546"
+        ></div>
+      </div>
+    </div>
+  </ion-list>
 </ion-content>

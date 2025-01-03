@@ -9,7 +9,12 @@ import { IntroService } from './services/intro.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private menuCtrl: MenuController, public router: Router, private navCtrl: NavController, private introService: IntroService) {
+  constructor(
+    private menuCtrl: MenuController,
+    public router: Router,
+    private navCtrl: NavController,
+    private introService: IntroService
+  ) {
     // this.checkIntro();
   }
 
@@ -17,47 +22,52 @@ export class AppComponent {
 
   closemenu() {
     this.menuCtrl.close();
-    this.router.navigate(['/wallet'])
+    this.router.navigate(['/wallet']);
   }
   closemenu1() {
     this.menuCtrl.close();
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home']);
   }
   closemenu2() {
     this.menuCtrl.close();
-    this.router.navigate(['/request'])
+    this.router.navigate(['/request']);
   }
   closemenu3() {
     this.menuCtrl.close();
-    this.router.navigate(['/settle'])
+    this.router.navigate(['/settle']);
   }
   closemenu4() {
     this.menuCtrl.close();
-    this.router.navigate(['/card'])
+    this.router.navigate(['/card']);
   }
   closemenu5() {
     this.menuCtrl.close();
-    this.router.navigate(['/balance'])
+    this.router.navigate(['/balance']);
   }
 
   closemenuHistorial() {
     this.menuCtrl.close();
-    this.router.navigate(['/historical'])
+    this.router.navigate(['/historical']);
   }
   closemenu6() {
     this.menuCtrl.close();
-    this.router.navigate(['/bitcoin'])
+    this.router.navigate(['/bitcoin']);
   }
   closemenu7() {
     this.menuCtrl.close();
-    this.router.navigate(['/tabs/setting'])
+    this.router.navigate(['/tabs/setting']);
+  }
+
+  goTo(route: string) {
+    this.menuCtrl.close();
+    this.router.navigate([route]);
   }
 
   async checkIntro() {
     const hasSeenIntro = await this.introService.hasSeenIntro();
     if (!hasSeenIntro) {
       this.navCtrl.navigateRoot('/intro');
-    }else{
+    } else {
       this.navCtrl.navigateRoot('/welcome2');
     }
   }
