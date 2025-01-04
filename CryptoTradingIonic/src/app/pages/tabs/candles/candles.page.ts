@@ -58,6 +58,12 @@ export class CandlesPage implements OnInit {
     },
   ];
 
+  professors = [
+    { id: 1, name: 'John Doe', profileImage: 'https://dummyimage.com/50x50/ddd/000', isFollowing: true, date: '27 Dec 05:00 PM' },
+    { id: 2, name: 'Jane Smith', profileImage: 'https://dummyimage.com/50x50/ddd/000', isFollowing: true, date: '27 Dec 05:00 PM'  },
+    { id: 3, name: 'Alice Johnson', profileImage: 'https://dummyimage.com/50x50/ddd/000', isFollowing: true, date: '27 Dec 05:00 PM'  },
+  ];
+
   constructor(private menuCtrl: MenuController) {}
 
   ngOnInit() {}

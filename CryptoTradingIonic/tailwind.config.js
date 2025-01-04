@@ -14,6 +14,7 @@ module.exports = {
         medium: "var(--ion-color-medium)",
         light: "var(--ion-color-light)",
         title: "#C8D9FB",
+        box: "var(--ion-color-box)",
       },
     },
   },
