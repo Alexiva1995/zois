@@ -1,13 +1,13 @@
-<ion-header [translucent]="false" style="box-shadow: none;">
-  <ion-toolbar color="bg" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
+<ion-header [translucent]="false"  style="box-shadow: none;">
+  <ion-toolbar style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
     <ion-buttons slot="start" routerLink="/login">
       <ion-icon name="arrow-back-outline" style="font-size: 24px;" ></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding" color="bg">
-  <ion-text class="title" style="margin-top: 20px;">Forgot password</ion-text>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-text class="title text-center" style="margin-top: 20px;">Forgot password</ion-text>
   
     <div style="margin-top: 20px;">
       <ion-text class="b14" style="color: var(--ion-color-primary);">E-Mail</ion-text>
@@ -16,6 +16,6 @@
       <ion-input type="email" placeholder="Enter E-Mail" ></ion-input>
     </div>
 
-    <ion-button routerLink="/login" expand="block" style="margin-top: 20px;">Send new password</ion-button>
+    <ion-button routerLink="/login" expand="block" color="primary" style="margin-top: 20px;">Send new password</ion-button>
 
 </ion-content>

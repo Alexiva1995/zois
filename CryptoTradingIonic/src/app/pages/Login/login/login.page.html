@@ -1,19 +1,17 @@
-<ion-header [translucent]="false" style="box-shadow: none">
-  <ion-toolbar
-    color="bg"
-    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+
+
+<ion-content [fullscreen]="true" class="ion-padding text-center">
+  <div class="w-full mx-auto flex justify-center py-6">
+    <img src="../../../../assets/image/logo.svg" alt="" srcset="">
+  </div>
+
+
+
+  <ion-text class="title text-center uppercase" style="margin-top: 20px"
+    >Iniciar Sesión</ion-text
   >
-    <ion-buttons slot="start" routerLink="/welcome2">
-      <ion-icon name="arrow-back-outline" style="font-size: 24px"></ion-icon>
-    </ion-buttons>
-    <ion-label routerLink="/signup" class="b14" slot="end">Sign Up</ion-label>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding" color="bg">
-  <ion-text class="title" style="margin-top: 20px">Iniciar Sesión</ion-text>
-
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
+  <form [formGroup]="loginForm" (ngSubmit)="login()" class="border-t-solid border-t-2 border-t-primary">
     <ion-item
       [ngClass]="{
         'input-error': loginForm.get('email')?.invalid && loginForm.get('email')?.touched
@@ -32,17 +30,20 @@
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
 
-    <ion-button type="submit" expand="block" color="primary" [disabled]="!loginForm.valid">
-      Iniciar Sesión
-    </ion-button>
-
-    <ion-row>
-      <ion-col>
-        <ion-button type="button" color="link" routerLink="/forgot"
-          >¿Olvidaste tu contraseña?</ion-button
-        >
-      </ion-col>
-    </ion-row>
+    <ion-item>
+      <ion-button type="button" color="link" routerLink="/forgot" class=""
+        >¿Olvidaste tu contraseña?</ion-button
+      >
+      <ion-button
+        type="submit"
+        expand="block"
+        color="primary"
+        [disabled]="!loginForm.valid"
+        class="rounded-full min-w-12 min-h-12 w-12 h-12 fixed right-8"
+      >
+        <ion-icon name="arrow-forward-outline" class="text-2xl"></ion-icon>
+      </ion-button>
+    </ion-item>
 
     <ion-row *ngIf="errorMessage">
       <ion-col>
