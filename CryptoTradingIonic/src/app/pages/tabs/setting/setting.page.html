@@ -106,12 +106,22 @@
 
  -->
 
- <ion-header [translucent]="false" style="box-shadow: none;">
-  <ion-toolbar class="bg-black" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
-    <ion-buttons slot="start" routerLink="/tabs/setting">
-      <ion-icon name="arrow-back-outline" style="font-size: 24px;" ></ion-icon>
+
+
+ <ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar
+    color="bg"
+    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+  >
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-img
+        src="../../../../assets/image/a2.png"
+        style="height: 21px; width: 21px"
+      ></ion-img>
     </ion-buttons>
-    <ion-label class="b14" style="text-align: center;display: block;">  User Profile</ion-label>
+    <ion-label class="b14" style="text-align: center; display: block">
+      User Profile</ion-label
+    >
   </ion-toolbar>
 </ion-header>
 

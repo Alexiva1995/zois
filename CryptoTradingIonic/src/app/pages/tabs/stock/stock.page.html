@@ -1,15 +1,26 @@
-
-<ion-header [translucent]="false" style="box-shadow: none;">
-  <ion-toolbar class="bg-black" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
-    <ion-buttons slot="start" routerLink="/tabs/setting">
-      <ion-icon name="arrow-back-outline" style="font-size: 24px;" ></ion-icon>
+<ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar
+    color="bg"
+    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+  >
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-img
+        src="../../../../assets/image/a2.png"
+        style="height: 21px; width: 21px"
+      ></ion-img>
     </ion-buttons>
-    <ion-label class="b14" style="text-align: center;display: block;"> Mis Señales </ion-label>
+    <ion-label class="b14" style="text-align: center; display: block">
+      Mis Señales
+    </ion-label>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list class="bg-black">
+    <div *ngIf="signals.length === 0" class="text-center text-white py-4">
+      <p>No tienes señales disponibles.</p>
+      <p>¡Sube tu primera señal ahora!</p>
+    </div>
 
     <div *ngFor="let signal of signals" class="bg-black text-white px-6">
       <div>
@@ -40,5 +51,18 @@
     </div>
   </ion-list>
 
-
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" size="small">
+    <ion-fab-button (click)="openAddSignalModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
+
+<ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()">
+  <ng-template>
+    <app-add-signal-modal
+      (onClose)="closeModal()"
+      (signalAdded)="handleSignalAdded($event)"
+    ></app-add-signal-modal>
+  </ng-template>
+</ion-modal>

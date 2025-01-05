@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-setting',
   templateUrl: './setting.page.html',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingPage implements OnInit {
 
-  constructor() { }
+  constructor(private menuCtrl: MenuController) { }
 
   ngOnInit() {
   }
 
+
+  openmenu() {
+    this.menuCtrl.enable(true, 'main-Id');
+    this.menuCtrl.open('main-Id');
+  }
 }

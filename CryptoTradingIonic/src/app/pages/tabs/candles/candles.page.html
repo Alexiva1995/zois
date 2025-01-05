@@ -1,19 +1,39 @@
+<ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar
+    color="bg"
+    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+  >
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-img
+        src="../../../../assets/image/a2.png"
+        style="height: 21px; width: 21px"
+      ></ion-img>
+    </ion-buttons>
+    <ion-title class="b14" style="text-align: center">Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
+  <!-- Profile Section -->
   <div
-    class="bg-black w-full flex flex-col items-center justify-center py-4 border-b-2 border-primary"
+    class="bg-black w-full flex flex-col items-center justify-center py-6 border-b-2 border-primary"
   >
     <img
       src="https://dummyimage.com/100x100/ddd/000"
       alt="Avatar"
-      class="rounded-full"
+      class="rounded-full shadow-lg"
     />
-    <p class="text-white text-sm mt-4 title">John Doe</p>
+    <p class="text-white text-lg font-bold mt-4">
+      {{ user.name || "Professor" }}
+    </p>
   </div>
+
+  <!-- Signals Section -->
   <ion-list class="bg-black">
-    <ion-list-header class="text-sm color-title"> Mis Señales </ion-list-header>
-    <div *ngFor="let signal of signals" class="bg-black text-white px-6">
-      <div>
-        <div class="flex justify-between items-center mt-2 text-white">
+    <ion-list-header class="text-sm color-title">Mis Señales</ion-list-header>
+    <div *ngIf="signals.length > 0" class="bg-black text-white px-6">
+      <div *ngFor="let signal of signals" class="my-2">
+        <div class="flex justify-between items-center text-white">
           <div class="text-left">
             <span class="font-semibold">USD/EUR</span>
             <p class="text-blue-300 font-bold">{{ signal.date }}</p>
@@ -26,34 +46,47 @@
             <span class="font-semibold">Buy Limit</span>
             <p class="text-xs text-green-400">{{ signal.buyLimit }}</p>
           </div>
-
           <div class="text-right">
             <span class="font-semibold">Buy Stop</span>
             <p class="text-xs text-red-500">{{ signal.buyStop }}</p>
           </div>
         </div>
         <div
-          class="lines"
-          style="margin: 15px 0; background-color: #2e3546"
+          class="lines my-4"
+          style="background-color: #2e3546; height: 1px"
         ></div>
       </div>
     </div>
+    <div
+      *ngIf="signals.length === 0"
+      class="flex flex-col items-center justify-center py-6 text-center"
+    >
+      <ion-icon
+        name="alert-circle-outline"
+        size="large"
+        color="medium"
+      ></ion-icon>
+      <p class="text-gray-400 text-sm mt-2">
+        No se encontraron señales disponibles.
+      </p>
+    </div>
   </ion-list>
 
+  <!-- Recent Students Section -->
   <ion-list class="bg-box">
-    <ion-list-header class="text-sm color-title">
-      Estudiantes Recientes</ion-list-header
+    <ion-list-header class="text-sm color-title"
+      >Estudiantes Recientes</ion-list-header
     >
     <div class="mt-4 px-6">
-      <ul class="divide-y divide-gray-800">
+      <ul *ngIf="professors.length > 0" class="divide-y divide-gray-800">
         <li
           *ngFor="let professor of professors"
           class="py-2 flex items-center justify-between"
         >
           <div class="flex items-center">
             <img
-              [src]="professor.profileImage"
-              class="h-10 w-10 rounded-full mr-4"
+              [src]="professor.profileImage || 'https://dummyimage.com/40x40/ddd/000'"
+              class="h-10 w-10 rounded-full mr-4 shadow-md"
               alt="Profile Picture"
             />
             <div class="text-left">
@@ -64,15 +97,17 @@
             </div>
           </div>
           <button class="bg-transparent text-white font-bold py-1 px-2 rounded">
-            {{ professor.date}}
+            {{ professor.date }}
           </button>
         </li>
       </ul>
-
-      <!-- Message when no results are found -->
-      <p *ngIf="professors.length === 0" class="text-sm text-gray-400 mt-2">
-        No se encontraron resultados.
-      </p>
+      <div
+        *ngIf="professors.length === 0"
+        class="flex flex-col items-center justify-center py-6 text-center"
+      >
+        <ion-icon name="people-outline" size="large" color="medium"></ion-icon>
+        <p class="text-gray-400 text-sm mt-2">No hay estudiantes recientes.</p>
+      </div>
     </div>
   </ion-list>
 </ion-content>
