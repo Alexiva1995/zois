@@ -78,31 +78,31 @@
       >Estudiantes Recientes</ion-list-header
     >
     <div class="mt-4 px-6">
-      <ul *ngIf="professors.length > 0" class="divide-y divide-gray-800">
+      <ul *ngIf="students.length > 0" class="divide-y divide-gray-800">
         <li
-          *ngFor="let professor of professors"
+          *ngFor="let student of students"
           class="py-2 flex items-center justify-between"
         >
           <div class="flex items-center">
             <img
-              [src]="professor.profileImage || 'https://dummyimage.com/40x40/ddd/000'"
+              [src]="student.profileImage || 'https://dummyimage.com/40x40/ddd/000'"
               class="h-10 w-10 rounded-full mr-4 shadow-md"
               alt="Profile Picture"
             />
             <div class="text-left">
               <span class="font-semibold text-xs text-white"
-                >{{ professor.name }}</span
+                >{{ student.name }}</span
               >
               <p class="text-xs text-gray-400">Subscription</p>
             </div>
           </div>
           <button class="bg-transparent text-white font-bold py-1 px-2 rounded">
-            {{ professor.date }}
+            {{ student.subscriptionDate | date:'dd MMM hh:mm a' }}
           </button>
         </li>
       </ul>
       <div
-        *ngIf="professors.length === 0"
+        *ngIf="students.length === 0"
         class="flex flex-col items-center justify-center py-6 text-center"
       >
         <ion-icon name="people-outline" size="large" color="medium"></ion-icon>

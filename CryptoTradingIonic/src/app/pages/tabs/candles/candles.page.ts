@@ -14,7 +14,7 @@ export class CandlesPage implements OnInit {
   isLoading = true;
   error: string | null = null;
   professor: any;
-  students: any;
+  students: any[] = [];
   userRole: any;
   user: any;
 
@@ -25,6 +25,17 @@ export class CandlesPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.getUserName();
+    this.loadDashboardData();
+    this.userService.currentUser.subscribe((user) => {
+      if (user) {
+        this.user = user;
+        this.userRole = user.role;
+      }
+    });
+  }
+
+  ionViewWillEnter() {
     this.getUserName();
     this.loadDashboardData();
     this.userService.currentUser.subscribe((user) => {

@@ -72,9 +72,14 @@ export class SignalsService {
 
     const user = localStorage.getItem('user');
     if (user) {
-      const { professorId } = JSON.parse(user);
-      return this.http.get<any>(this.apiUrl + 'by-professor'+ '/' + professorId, { params });
+      const { _id } = JSON.parse(user);
+      return this.http.get<any>(this.apiUrl + 'by-professor'+ '/' + _id, { params });
     }
     return this.http.get<any>(this.apiUrl, { params });
+  }
+
+  createSignal(signalData: any): Observable<any> {
+
+    return this.http.post(`${this.apiUrl}`, signalData);
   }
 }

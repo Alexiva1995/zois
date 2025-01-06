@@ -14,7 +14,7 @@ export interface Professor {
   providedIn: 'root',
 })
 export class ProfessorService {
-  private apiUrl = 'http://localhost:3000/professors/dashboard';
+  private apiUrl = 'http://localhost:3000/professors';
   constructor(private http: HttpClient) {}
 
   private professors: Professor[] = [
@@ -55,8 +55,27 @@ export class ProfessorService {
     }
     const user = localStorage.getItem('user');
     if (user) {
-      const { professorId } = JSON.parse(user);
-      return this.http.get<any>(this.apiUrl + '/' + professorId, { params });
+      const { _id } = JSON.parse(user);
+      return this.http.get<any>(this.apiUrl + '/dashboard/' + _id, {
+        params,
+      });
+    }
+    return this.http.get<any>(this.apiUrl, { params });
+  }
+
+  getStudents(filters?: any): Observable<any[]> {
+    let params = new HttpParams();
+    if (filters) {
+      Object.keys(filters).forEach((key) => {
+        params = params.set(key, filters[key]);
+      });
+    }
+    const user = localStorage.getItem('user');
+    if (user) {
+      const { _id } = JSON.parse(user);
+      return this.http.get<any>(this.apiUrl + '/students/' + _id, {
+        params,
+      });
     }
     return this.http.get<any>(this.apiUrl, { params });
   }

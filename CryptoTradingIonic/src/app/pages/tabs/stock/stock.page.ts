@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, ToastController } from '@ionic/angular';
 import { UserService } from 'src/app/core/services/user.service';
 import { SignalsService } from 'src/app/services/signals.service';
 
@@ -18,7 +18,8 @@ export class StockPage implements OnInit {
   constructor(
     private menuCtrl: MenuController,
     private signalService: SignalsService,
-    private userService: UserService
+    private userService: UserService,
+    private toastController: ToastController
   ) {}
 
   ngOnInit() {
@@ -45,8 +46,29 @@ export class StockPage implements OnInit {
   }
 
   handleSignalAdded(signal: any) {
+    this.user = localStorage.getItem('user');
+    signal = { ...signal, professorId: JSON.parse(this.user)._id };
     console.log(signal);
-    // this.signalService.addSignal(signal);
+    this.signalService.createSignal(signal).subscribe({
+      next: async () => {
+        const toast = await this.toastController.create({
+          message: 'Señal creada exitosamente.',
+          duration: 2000,
+          color: 'success',
+        });
+        await toast.present();
+        this.loadSignals();
+        this.closeModal();
+      },
+      error: async () => {
+        const toast = await this.toastController.create({
+          message: 'Error al crear la señal. Inténtalo de nuevo.',
+          duration: 2000,
+          color: 'danger',
+        });
+        await toast.present();
+      },
+    });
     this.closeModal();
   }
 
