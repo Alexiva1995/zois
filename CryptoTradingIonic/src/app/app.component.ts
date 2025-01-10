@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController, NavController } from '@ionic/angular';
 import { IntroService } from './services/intro.service';
+import { UserService } from './core/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,29 @@ import { IntroService } from './services/intro.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  userName: string = '';
+  isLoggedIn: boolean = false;
+  userRole: null | string = null;
+
   constructor(
     private menuCtrl: MenuController,
     public router: Router,
     private navCtrl: NavController,
-    private introService: IntroService
-  ) {
-    // this.checkIntro();
-  }
+    private introService: IntroService,
+    private userService: UserService
+  ) {}
 
   menuType: string = 'overlay';
-
+  ngOnInit() {
+    this.getUserName();
+    this.userService.currentUser.subscribe((user) => {
+      if (user) {
+        this.userName = user.name;
+        this.userRole = user.role;
+        this.isLoggedIn = true;
+      }
+    });
+  }
   closemenu() {
     this.menuCtrl.close();
     this.router.navigate(['/wallet']);
@@ -70,5 +83,21 @@ export class AppComponent {
     } else {
       this.navCtrl.navigateRoot('/welcome2');
     }
+  }
+
+  getUserName() {
+    const user = localStorage.getItem('user');
+    if (user) {
+      const parsedUser = JSON.parse(user);
+      this.userName = parsedUser.name;
+      this.userRole = parsedUser.role;
+      this.isLoggedIn = true;
+    }
+  }
+  logout() {
+    localStorage.removeItem('user');
+    this.isLoggedIn = false;
+    this.userName = '';
+    this.userRole = null;
   }
 }
