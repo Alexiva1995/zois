@@ -1,5 +1,3 @@
-
-
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -16,7 +14,6 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 @import "./theme/fonts.scss";
-
 
 /* Tailwind SCSS */
 @import "./tailwind.css";
@@ -91,7 +88,7 @@ ion-content {
 }
 
 .lines1 {
-  background-color: linear-gradient(to top left, #7E00FF , #0078FF);
+  background-color: linear-gradient(to top left, #7e00ff, #0078ff);
   height: 1px;
   display: block;
 }
@@ -104,13 +101,13 @@ ion-button {
   letter-spacing: 0;
   --border-radius: 30px;
   font-family: SF-UI-Display-Bold;
-  --background: linear-gradient(to top left, #7E00FF,#0078FF);
+  --background: linear-gradient(to top left, #7e00ff, #0078ff);
 }
 
 .btn {
   height: 49px;
   width: 49px;
-  background: linear-gradient(to top left, #7E00FF,#0078FF);
+  background: linear-gradient(to top left, #7e00ff, #0078ff);
   border-radius: 25px;
   align-items: center;
   justify-content: center;
@@ -125,14 +122,14 @@ ion-button {
   --padding-top: 15px;
   --background: #ffffff;
   --color: #000000;
-  ion-icon{
+  ion-icon {
     color: var(--ion-color-icon);
   }
 }
 ion-toolbar {
   --background: #ffffff;
   --color: #000000;
-  ion-icon{
+  ion-icon {
     color: var(--ion-color-icon);
   }
 }
@@ -147,6 +144,15 @@ ion-toolbar {
   ion-content {
     --background: var(--ion-color-bg);
   }
+}
+
+ion-content {
+  background: #000000;
+}
+
+ion-toolbar {
+  --background: #000000;
+  --color: #ffffff;
 }
 
 .scroll {

@@ -7,6 +7,7 @@ import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ToastService } from 'src/app/services/toast.service';
 import * as AuthActions from './auth.actions';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Injectable()
 export class AuthEffects {
@@ -15,51 +16,53 @@ export class AuthEffects {
     private http: HttpClient,
     private toastService: ToastService,
     private router: Router,
-    private loadingService: LoadingService
-  ) { }
+    private loadingService: LoadingService,
+    private userService: UserService
+  ) {}
 
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.loginRequest),
       tap(() => this.loadingService.showLoading()),
       mergeMap((action) =>
-        this.http.post<any>('/api/login', {
-          email: action.email,
-          password: action.password,
-        }).pipe(
-          map((user) => {
-            this.loadingService.hideLoading();
-            return AuthActions.loginSuccess({ user });
-          }),
-          catchError((error) => {
-            this.loadingService.hideLoading();
-            this.toastService.showError('Error en el login. Por favor, intenta de nuevo.');
-            return of(AuthActions.loginFailure({ error: error.message || 'Error desconocido' }));
+        this.http
+          .post<any>('http://localhost:3000/users/login', {
+            email: action.email,
+            password: action.password,
           })
-        )
+          .pipe(
+            map((response) => {
+              this.loadingService.hideLoading();
+              return AuthActions.loginSuccess(response);
+            }),
+            catchError((error) => {
+              this.loadingService.hideLoading();
+              console.log(error);
+              this.toastService.showError(
+                'Error en el login. Por favor, intenta de nuevo.'
+              );
+              return of(AuthActions.loginFailure({ error }));
+            })
+          )
       )
     )
   );
-
 
   loginSuccess$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(AuthActions.loginSuccess),
-        tap(() => this.router.navigate(['/tabs']))
+        tap((action) => {
+          // Guarda el token en localStorage o en el lugar que prefieras
+          console.log(action);
+
+          localStorage.setItem('authToken', action.token);
+          localStorage.setItem('user', JSON.stringify(action.user));
+          this.userService.setUser(action.user);
+          // Redirige a la pantalla principal
+          this.router.navigate(['/tabs']);
+        })
       ),
     { dispatch: false }
   );
-
-
-  /* Only for test */
-  loginFailure$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(AuthActions.loginFailure),
-        tap(() => this.router.navigate(['/tabs']))
-      ),
-    { dispatch: false }
-  );
-  /* Only for test */
 }

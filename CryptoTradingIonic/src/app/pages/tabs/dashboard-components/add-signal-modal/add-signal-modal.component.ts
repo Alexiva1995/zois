@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-signal-modal',
   templateUrl: './add-signal-modal.component.html',
-  styleUrls: ['./add-signal-modal.component.scss']
+  styleUrls: ['./add-signal-modal.component.scss'],
 })
 export class AddSignalModalComponent {
   @Output() onClose = new EventEmitter<void>();
@@ -13,7 +14,10 @@ export class AddSignalModalComponent {
   signalForm: FormGroup;
   // uploadedImage: File | null = null;
   imagePreview: string | ArrayBuffer | null = null;
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private toastController: ToastController
+  ) {
     this.signalForm = this.fb.group({
       name: ['', [Validators.required]],
       buyLimit: [null, [Validators.required]],
@@ -22,7 +26,7 @@ export class AddSignalModalComponent {
       sellStop: [null, [Validators.required]],
       stopLoss: [null, [Validators.required]],
       takeProfit: [null, [Validators.required]],
-      instructions: ['']
+      instructions: [''],
     });
   }
   closeModal() {
@@ -42,15 +46,22 @@ export class AddSignalModalComponent {
     }
   }
 
-  submit() {
-    if (this.signalForm.valid) {
-      const signalData = {
-        ...this.signalForm.value,
-        image: this.imagePreview
-      };
-      this.signalAdded.emit(signalData);
+  async submit() {
+    if (this.signalForm.invalid) {
+      const toast = await this.toastController.create({
+        message: 'Por favor completa todos los campos requeridos.',
+        duration: 2000,
+        color: 'danger',
+      });
+      await toast.present();
+      return;
     }
+
+    const signalData = {
+      ...this.signalForm.value,
+      image: this.imagePreview,
+    };
+    this.signalAdded.emit(signalData);
+    this.signalForm.reset();
   }
-
-
 }

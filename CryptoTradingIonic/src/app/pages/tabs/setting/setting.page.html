@@ -1,106 +1,62 @@
-<ion-header [translucent]="false" style="box-shadow: none;">
-  <ion-toolbar color="bg" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
-
+<ion-header [translucent]="false" style="box-shadow: none">
+  <ion-toolbar
+    color="bg"
+    style="padding: 0px 15px; padding-top: 8px; --border-width: 0 0"
+  >
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-img
+        src="../../../../assets/image/a2.png"
+        style="height: 21px; width: 21px"
+      ></ion-img>
+    </ion-buttons>
+    <ion-label class="b14" style="text-align: center; display: block">
+      User Profile</ion-label
+    >
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding" color="bg">
-  <div>
-    <ion-text class="apptitle">Settings</ion-text>
+<ion-content [fullscreen]="true" class="ion-padding bg-black">
+  <ion-text class="b14" style="color: var(--ion-color-icon)">Nombre</ion-text>
+  <div class="input" color="bg">
+    <ion-input
+      type="txt"
+      [placeholder]="user?.name + ' ' + user?.surname"
+      disabled
+    ></ion-input>
   </div>
 
-  <div style="margin-top: 10px;margin-bottom: 15px;">
-    <ion-text class="b14" style="color: var(--ion-color-icon);">General</ion-text>
+  <ion-text class="b14" style="color: var(--ion-color-icon)">E-Mail</ion-text>
+  <div class="input" color="bg">
+    <ion-input type="email" [placeholder]="user.email"></ion-input>
   </div>
 
-  <div class="list1" id="open-modal7">
-    <ion-text class="m14">Notifications</ion-text>
-    <ion-icon name="chevron-forward-outline" color="icon" style="font-size: 21px;"></ion-icon>
+  <div class="list1" style="margin-top: 20px">
+    <ion-text class="m14">Change password</ion-text>
+    <ion-icon
+      name="chevron-forward-outline"
+      color="icon"
+      style="font-size: 21px"
+    ></ion-icon>
   </div>
 
-  <div class="lines" style="background-color: #1A202E;margin: 15px 0;"></div>
-
-  <div class="list1" routerLink="/watch">
-    <ion-text class="m14">Currency Preference</ion-text>
-    <ion-icon name="chevron-forward-outline" color="icon" style="font-size: 21px;"></ion-icon>
-  </div>
-
-  <div class="lines" style="background-color: #1A202E;margin: 15px 0;"></div>
+  <div class="lines" style="background-color: #1a202e; margin: 15px 0"></div>
 
   <div class="list1">
-    <ion-text class="m14">Alerts</ion-text>
-    <ion-icon name="chevron-forward-outline" color="icon" style="font-size: 21px;"></ion-icon>
+    <ion-text class="m14">Delete account</ion-text>
+    <ion-icon
+      name="chevron-forward-outline"
+      color="icon"
+      style="font-size: 21px"
+    ></ion-icon>
   </div>
 
-  <div class="lines" style="background-color: #1A202E;margin: 15px 0;"></div>
+  <div class="lines" style="background-color: #1a202e; margin: 15px 0"></div>
 
-  <div style="margin-top: 25px;margin-bottom: 20px;">
-    <ion-text class="b14" style="color: var(--ion-color-icon);">Account</ion-text>
+  <div class="bg-black w-full flex flex-col items-center justify-center py-4">
+    <img
+      src="https://dummyimage.com/100x100/ddd/000"
+      alt="Avatar"
+      class="rounded-full"
+    />
   </div>
-
-  <div class="list1" routerLink="/user">
-    <ion-text class="m14">User Profile</ion-text>
-    <ion-icon name="chevron-forward-outline" color="icon" style="font-size: 21px;"></ion-icon>
-  </div>
-
-  <div class="lines" style="background-color: #1A202E;margin: 15px 0;"></div>
-
-  <div class="list1" routerLink="/pin">
-    <ion-text class="m14">Change PIN-code</ion-text>
-    <ion-icon name="chevron-forward-outline" color="icon" style="font-size: 21px;"></ion-icon>
-  </div>
-
-  <div class="lines" style="background-color: #1A202E;margin: 15px 0;"></div>
-
-  <div class="list1" routerLink="/login">
-    <ion-text class="m14">Log Out</ion-text>
-    <ion-icon name="chevron-forward-outline" color="icon" style="font-size: 21px;"></ion-icon>
-  </div>
-
-  <div class="lines" style="background-color: #1A202E;margin: 15px 0;"></div>
-
-  <ion-modal
-  cssClass="rbsheet"
-  trigger="open-modal7"
-  [initialBreakpoint]="0.45"
-  [breakpoints]="[0, 0.55]"
-  handleBehavior="cycle"
-  >
-  <ng-template>
-    <ion-content class="ion-padding" style="margin-bottom: 50px;">
-      <div class="ion-margin-top" >
-
-        <div >
-          <ion-text class="apptitle" style="color: var(--ion-color-txt);">Notifications</ion-text>
-        </div>
-
-        <div class="list1" style="margin-top:20px;">
-          <ion-text class="m14">Push-notifications</ion-text>
-          <ion-toggle [checked]="true"></ion-toggle>
-        </div>
-        <div class="lines" style="background-color:var(--ion-color-back) ;margin: 15px 0;"></div>
-
-        <div class="list1">
-          <ion-text class="m14">End of the day</ion-text>
-          <ion-toggle [checked]="false"></ion-toggle>
-        </div>
-        <div class="lines" style="background-color:var(--ion-color-back) ;margin: 15px 0;"></div>
-
-        <div class="list1">
-          <ion-text class="m14">New release available</ion-text>
-          <ion-toggle [checked]="true"></ion-toggle>
-        </div>
-        <div class="lines" style="background-color:var(--ion-color-back) ;margin: 15px 0;"></div>
-
-        <div class="list1">
-          <ion-text class="m14">Other notifications</ion-text>
-          <ion-toggle [checked]="false"></ion-toggle>
-        </div>
-        <div class="lines" style="background-color:var(--ion-color-back) ;margin: 15px 0;"></div>
-      </div>
-    </ion-content>
-  </ng-template>
-  </ion-modal>
-
 </ion-content>
-
