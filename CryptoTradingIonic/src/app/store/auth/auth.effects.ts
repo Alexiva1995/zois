@@ -26,7 +26,7 @@ export class AuthEffects {
       tap(() => this.loadingService.showLoading()),
       mergeMap((action) =>
         this.http
-          .post<any>('http://localhost:3000/users/login', {
+          .post<any>('https://zois-back.valdusoft.com/users/login', {
             email: action.email,
             password: action.password,
           })

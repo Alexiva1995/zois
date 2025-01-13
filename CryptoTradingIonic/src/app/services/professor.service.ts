@@ -14,7 +14,7 @@ export interface Professor {
   providedIn: 'root',
 })
 export class ProfessorService {
-  private apiUrl = 'http://localhost:3000/professors';
+  private apiUrl = 'https://zois-back.valdusoft.com/professors';
   constructor(private http: HttpClient) {}
 
   private professors: Professor[] = [
