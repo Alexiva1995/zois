@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SignalsService {
-  private apiUrl = 'http://localhost:3000/signals/';
+  private apiUrl = 'https://zois-back.valdusoft.com/signals/';
   constructor(private http: HttpClient) {}
 
   getSignalsByProfessor(filters?: any): Observable<any> {
