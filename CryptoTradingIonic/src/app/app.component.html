@@ -69,6 +69,45 @@
         </div>
       </ng-container>
 
+            <!-- Opciones para Students -->
+            <ng-container *ngIf="userRole === 'student'">
+              <div
+                (click)="goTo('/tabs/candles')"
+                class="list flex items-center p-2 mt-2 cursor-pointer hover:bg-gray-200 rounded"
+              >
+                <ion-icon
+                  name="home-outline"
+                  class="text-gray-700"
+                  style="font-size: 24px"
+                ></ion-icon>
+                <ion-text class="b14 ml-3 text-gray-800">Dashboard</ion-text>
+              </div>
+
+              <div
+                (click)="goTo('/tabs/stock')"
+                class="list flex items-center p-2 mt-2 cursor-pointer hover:bg-gray-200 rounded"
+              >
+                <ion-icon
+                  name="stats-chart-outline"
+                  class="text-gray-700"
+                  style="font-size: 24px"
+                ></ion-icon>
+                <ion-text class="b14 ml-3 text-gray-800">Señales</ion-text>
+              </div>
+
+              <div
+                (click)="goTo('/tabs/candles')"
+                class="list flex items-center p-2 mt-2 cursor-pointer hover:bg-gray-200 rounded"
+              >
+                <ion-icon
+                  name="school-outline"
+                  class="text-gray-700"
+                  style="font-size: 24px"
+                ></ion-icon>
+                <ion-text class="b14 ml-3 text-gray-800">Favoritos</ion-text>
+              </div>
+            </ng-container>
+
       <!-- Botón de Logout -->
       <div
         (click)="logout()"

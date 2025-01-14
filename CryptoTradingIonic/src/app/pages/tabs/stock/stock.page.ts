@@ -75,18 +75,32 @@ export class StockPage implements OnInit {
   loadSignals(filters?: any) {
     this.isLoading = true;
     console.log('load signals');
-    this.signalService.getSignalsByProfessor(filters).subscribe({
-      next: (data: any) => {
-        this.isLoading = false;
-        console.log(data);
-        this.signals = data.signals;
-      },
-      error: (err: any) => {
-        console.error(err);
-        this.error = 'Error loading dashboard data.';
-        this.isLoading = false;
-      },
-    });
+    if (this.user.role === 'professor') {
+      this.signalService.getSignalsByProfessor(filters).subscribe({
+        next: (data: any) => {
+          this.isLoading = false;
+          console.log(data);
+          this.signals = data.signals;
+        },
+        error: (err: any) => {
+          console.error(err);
+          this.error = 'Error loading dashboard data.';
+          this.isLoading = false;
+        },
+      });
+    } else {
+      this.signalService.getSignals().subscribe({
+        next: (data: any) => {
+          this.isLoading = false;
+          this.signals = data.signals;
+        },
+        error: (err: any) => {
+          console.error(err);
+          this.error = 'Error loading dashboard data.';
+          this.isLoading = false;
+        },
+      });
+    }
   }
 
   getUserName() {
