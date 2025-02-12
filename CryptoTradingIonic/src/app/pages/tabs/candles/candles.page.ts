@@ -24,16 +24,7 @@ export class CandlesPage implements OnInit {
     private userService: UserService
   ) {}
 
-  ngOnInit() {
-    this.getUserName();
-    this.loadDashboardData();
-    this.userService.currentUser.subscribe((user) => {
-      if (user) {
-        this.user = user;
-        this.userRole = user.role;
-      }
-    });
-  }
+  ngOnInit() {}
 
   ionViewWillEnter() {
     this.getUserName();
@@ -49,19 +40,35 @@ export class CandlesPage implements OnInit {
   loadDashboardData(filters?: any) {
     this.isLoading = true;
 
-    this.professorService.getProfessorDashboard(filters).subscribe({
-      next: (data: any) => {
-        this.professor = data.professor || null;
-        this.students = data.latestStudents || [];
-        this.signals = data.latestSignals || [];
-        this.isLoading = false;
-      },
-      error: (err: any) => {
-        console.error(err);
-        this.error = 'Error loading dashboard data.';
-        this.isLoading = false;
-      },
-    });
+    if (this.user.role === 'professor') {
+      this.professorService.getProfessorDashboard(filters).subscribe({
+        next: (data: any) => {
+          this.professor = data.professor || null;
+          this.students = data.latestStudents || [];
+          this.signals = data.latestSignals || [];
+          this.isLoading = false;
+        },
+        error: (err: any) => {
+          console.error(err);
+          this.error = 'Error loading dashboard data.';
+          this.isLoading = false;
+        },
+      });
+    }
+
+    if(this.user.role === 'student') {
+      this.professorService.getAll().subscribe({
+        next: (data: any) => {
+          this.professors = data.professors || [];
+          this.isLoading = false;
+        },
+        error: (err: any) => {
+          console.error(err);
+          this.error = 'Error loading dashboard data.';
+          this.isLoading = false;
+        },
+      });
+    }
   }
 
   openmenu() {
@@ -71,5 +78,7 @@ export class CandlesPage implements OnInit {
 
   getUserName() {
     this.user = localStorage.getItem('user');
+    this.user = JSON.parse(this.user);
+    this.loadDashboardData();
   }
 }

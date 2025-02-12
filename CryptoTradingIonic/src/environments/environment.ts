@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  // apiUrl: process.env['API_BASE_URL'] || 'http://localhost:3000',
+  // apiUrl: process.env['API_BASE_URL'] || 'https://zois-back.valdusoft.com',
 };
 
 /*
