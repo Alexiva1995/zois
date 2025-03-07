@@ -1,104 +1,49 @@
 <ion-header [translucent]="false" style="box-shadow: none;">
-  <ion-toolbar color="bg" style="padding: 0px 15px;padding-top: 8px;--border-width: 0 0;">
+  <ion-toolbar color="bg" style="padding: 0px 15px;--border-width: 0 0;padding-top: 10px;">
     <ion-buttons slot="start" (click)="openmenu()">
       <ion-img
         src="../../../../assets/image/a2.png"
         style="height: 21px; width: 21px"
       ></ion-img>
     </ion-buttons>
-    <ion-label class="b14" style="text-align: center;display: block;">Estudiantes</ion-label>
+    <ion-label class="b14" style="text-align: center; display: block">
+      Estudiantes</ion-label>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding" color="bg">
-  <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center">
-    <img src="https://dummyimage.com/50x50/ddd/000" alt="Student's Photo" class="rounded-full h-12 w-12 object-cover object-center mr-4">
-    <div>
-      <p class="text-lg font-bold text-black">John Doe</p>
-      <p class="text-sm text-gray-600">Active</p>
-    </div>
-    <div class="grid grid-cols-2 gap-2 ml-auto space-x-2">
-      <div>
-        <p class="font-semibold text-xs text-black">Expiration Date</p>
-        <p class="text-xs text-gray-600">12/31/2022</p>
-      </div>
-      <div>
-        <p class="font-semibold text-xs text-black">Following</p>
-        <p class="text-xs text-green-500">Yes</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center">
-    <img src="https://dummyimage.com/50x50/ddd/000" alt="Student's Photo" class="rounded-full h-12 w-12 object-cover object-center mr-4">
-    <div>
-      <p class="text-lg font-bold text-black">John Doe</p>
-      <p class="text-sm text-gray-600">Active</p>
-    </div>
-    <div class="grid grid-cols-2 gap-2 ml-auto space-x-2">
-      <div>
-        <p class="font-semibold text-xs text-black">Expiration Date</p>
-        <p class="text-xs text-gray-600">12/31/2022</p>
-      </div>
-      <div>
-        <p class="font-semibold text-xs text-black">Following</p>
-        <p class="text-xs text-green-500">Yes</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center">
-    <img src="https://dummyimage.com/50x50/ddd/000" alt="Student's Photo" class="rounded-full h-12 w-12 object-cover object-center mr-4">
-    <div>
-      <p class="text-lg font-bold text-black">John Doe</p>
-      <p class="text-sm text-gray-600">Active</p>
-    </div>
-    <div class="grid grid-cols-2 gap-2 ml-auto space-x-2">
-      <div>
-        <p class="font-semibold text-xs text-black">Expiration Date</p>
-        <p class="text-xs text-gray-600">12/31/2022</p>
-      </div>
-      <div>
-        <p class="font-semibold text-xs text-black">Following</p>
-        <p class="text-xs text-green-500">Yes</p>
+<ion-content id="main-content" [fullscreen]="true" class="ion-padding" color="bg">
+  <ion-list class="bg-box">
+    <div class="mt-4 px-6">
+      <ul *ngIf="students.length > 0" class="divide-y divide-gray-800">
+        <li
+          *ngFor="let student of students"
+          class="py-2 flex items-center justify-between"
+        >
+          <div class="flex items-center">
+            <img
+              [src]="student?.photo || 'https://dummyimage.com/40x40/ddd/000'"
+              class="h-10 w-10 rounded-full mr-4 shadow-md"
+              alt="Profile Picture"
+            />
+            <div class="text-left">
+              <span class="font-semibold text-xs text-white"
+                >{{ student.name }}</span
+              >
+              <p class="text-xs text-gray-400">Subscription</p>
+            </div>
+          </div>
+          <button class="bg-transparent text-white font-bold py-1 px-2 rounded">
+            {{ student.subscriptionDate | date:'dd MMM hh:mm a' }}
+          </button>
+        </li>
+      </ul>
+      <div
+        *ngIf="students.length === 0"
+        class="flex flex-col items-center justify-center py-6 text-center"
+      >
+        <ion-icon name="people-outline" size="large" color="medium"></ion-icon>
+        <p class="text-gray-400 text-sm mt-2">No hay estudiantes recientes.</p>
       </div>
     </div>
-  </div>
-
-  <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center">
-    <img src="https://dummyimage.com/50x50/ddd/000" alt="Student's Photo" class="rounded-full h-12 w-12 object-cover object-center mr-4">
-    <div>
-      <p class="text-lg font-bold text-black">John Doe</p>
-      <p class="text-sm text-gray-600">Active</p>
-    </div>
-    <div class="grid grid-cols-2 gap-2 ml-auto space-x-2">
-      <div>
-        <p class="font-semibold text-xs text-black">Expiration Date</p>
-        <p class="text-xs text-gray-600">12/31/2022</p>
-      </div>
-      <div>
-        <p class="font-semibold text-xs text-black">Following</p>
-        <p class="text-xs text-green-500">Yes</p>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center">
-    <img src="https://dummyimage.com/50x50/ddd/000" alt="Student's Photo" class="rounded-full h-12 w-12 object-cover object-center mr-4">
-    <div>
-      <p class="text-lg font-bold text-black">John Doe</p>
-      <p class="text-sm text-gray-600">Active</p>
-    </div>
-    <div class="grid grid-cols-2 gap-2 ml-auto space-x-2">
-      <div>
-        <p class="font-semibold text-xs text-black">Expiration Date</p>
-        <p class="text-xs text-gray-600">12/31/2022</p>
-      </div>
-      <div>
-        <p class="font-semibold text-xs text-black">Following</p>
-        <p class="text-xs text-green-500">Yes</p>
-      </div>
-    </div>
-  </div>
+  </ion-list>
 </ion-content>

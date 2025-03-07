@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
@@ -7,8 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { BalancePageRoutingModule } from './balance-routing.module';
 
 import { BalancePage } from './balance.page';
-import { DashboardComponentsModule } from '../../tabs/dashboard-components/dashboard-components.module';
-
 @NgModule({
   imports: [
     CommonModule,

@@ -16,67 +16,90 @@ export class HistoricalPage {
 
   signals = [
     {
-      id: 1,
-      asset: 'BTC/USD',
-      orderType: 'buy',
-      entryPrice: 42000,
-      educator: 'John Doe',
-      dateTime: new Date('2024-11-25T14:30:00'),
+      "pair": "BTC/USDT",
+      "type": "Buy",
+      "entryPrice": "27500 - 27600",
+      "takeProfit": ["27800", "28000", "28500"],
+      "stopLoss": "27350",
+      "riskRewardRatio": "3:1",
+      "volume": "2%",
+      "timeframe": "1H",
+      "reason": "Soporte clave en $27,500 con RSI en sobreventa",
+      "date": "2024-12-18T10:30:00Z",
+      "educator": "CryptoGuru",
+      "status": "Open"
     },
     {
-      id: 2,
-      asset: 'ETH/USD',
-      orderType: 'sell',
-      entryPrice: 3200,
-      educator: 'Jane Smith',
-      dateTime: new Date('2024-11-24T11:00:00'),
+      "pair": "ETH/USDT",
+      "type": "Sell",
+      "entryPrice": "1750 - 1760",
+      "takeProfit": ["1730", "1700", "1680"],
+      "stopLoss": "1775",
+      "riskRewardRatio": "2.5:1",
+      "volume": "3%",
+      "timeframe": "4H",
+      "reason": "Rechazo en resistencia con divergencia bajista en MACD",
+      "date": "2024-12-18T09:00:00Z",
+      "educator": "TradingBotPro",
+      "status": "Open"
     },
+    {
+      "pair": "BNB/USDT",
+      "type": "Buy",
+      "entryPrice": "210 - 212",
+      "takeProfit": ["215", "220", "225"],
+      "stopLoss": "208",
+      "riskRewardRatio": "4:1",
+      "volume": "1.5%",
+      "timeframe": "1D",
+      "reason": "Zona de acumulación en soporte semanal",
+      "date": "2024-12-17T15:00:00Z",
+      "educator": "DailySignals",
+      "status": "Open"
+    },
+    {
+      "pair": "XRP/USDT",
+      "type": "Sell",
+      "entryPrice": "0.65 - 0.66",
+      "takeProfit": ["0.63", "0.61", "0.58"],
+      "stopLoss": "0.67",
+      "riskRewardRatio": "3.2:1",
+      "volume": "2%",
+      "timeframe": "2H",
+      "reason": "Patrón de doble techo confirmado en resistencia",
+      "date": "2024-12-18T08:45:00Z",
+      "educator": "SignalMaster",
+      "status": "Open"
+    },
+    {
+      "pair": "SOL/USDT",
+      "type": "Buy",
+      "entryPrice": "20.00 - 20.50",
+      "takeProfit": ["21.00", "22.00", "23.00"],
+      "stopLoss": "19.50",
+      "riskRewardRatio": "5:1",
+      "volume": "2%",
+      "timeframe": "1H",
+      "reason": "Rebote técnico tras consolidación en soporte diario",
+      "date": "2024-12-17T21:30:00Z",
+      "educator": "ProCryptoSignals",
+      "status": "Closed"
+    }
   ];
 
-  filters = {
-    asset: '',
-    orderType: '',
-    educator: '',
-    dateRange: {
-      start: null,
-      end: null,
-    },
-  };
+
+
+  expandedSignalId: number | null = null;
+
+  toggleDetails(signalId: number): void {
+    this.expandedSignalId = this.expandedSignalId === signalId ? null : signalId;
+  }
+
 
   minDate = '2020-01-01';
   maxDate = '2025-12-31';
 
   educators = ['John Doe', 'Jane Smith'];
-  filteredSignals = [...this.signals];
-
-  updateDateRange(event: any) {
-    this.filters.dateRange.start = event.detail.value.start;
-    this.filters.dateRange.end = event.detail.value.end;
-    this.applyFilters();
-  }
-
-  applyFilters() {
-    this.filteredSignals = this.signals.filter((signal) => {
-      const matchesAsset =
-        !this.filters.asset ||
-        signal.asset.toLowerCase().includes(this.filters.asset.toLowerCase());
-      const matchesOrderType =
-        !this.filters.orderType || signal.orderType === this.filters.orderType;
-      const matchesEducator =
-        !this.filters.educator || signal.educator === this.filters.educator;
-
-      const matchesDateRange =
-        (!this.filters.dateRange.start ||
-          new Date(signal.dateTime) >=
-            new Date(this.filters.dateRange.start)) &&
-        (!this.filters.dateRange.end ||
-          new Date(signal.dateTime) <= new Date(this.filters.dateRange.end));
-
-      return (
-        matchesAsset && matchesOrderType && matchesEducator && matchesDateRange
-      );
-    });
-  }
 
   openmenu() {
     this.menuCtrl.enable(true, 'main-Id');
@@ -86,10 +109,11 @@ export class HistoricalPage {
   async openFilters(event: any) {
     const popover = await this.popoverCtrl.create({
       component: FilterModalComponent,
-      event: event, // El evento es necesario para posicionar el popover correctamente
-      translucent: true, // Para darle un fondo translúcido al popover
+      event: event,
+      translucent: true,
     });
 
     await popover.present();
   }
+
 }

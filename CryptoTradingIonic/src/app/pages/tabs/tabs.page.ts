@@ -11,6 +11,7 @@ export class TabsPage implements OnInit {
   selectTab: any;
   @ViewChild('tabs', { static: false })
   tabs!: IonTabs;
+  user: any = [];
 
   constructor() {
     // this.user$ = this.store.select('user');
@@ -19,8 +20,17 @@ export class TabsPage implements OnInit {
   ngOnInit() {
   }
 
+  ionViewWillEnter() {
+    this.getUserName();
+  }
+
   setCurrentTab() {
     this.selectTab = this.tabs.getSelected();
+  }
+
+  getUserName() {
+    this.user = localStorage.getItem('user');
+    this.user = JSON.parse(this.user);
   }
 
 }

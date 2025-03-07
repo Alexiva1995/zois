@@ -1,36 +1,3 @@
-<div *ngIf="signals$ | async as signals" class="content">
-  <ng-container *ngIf="signals.length > 0; else noSignals">
-    <ion-card *ngFor="let signal of signals" class="signal-card">
-      <ion-card-header>
-        <ion-card-title>{{ signal.name }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <div class="signal-info">
-          <p><strong>Buy Limit:</strong> {{ signal.buyLimit }}</p>
-          <p><strong>Sell Limit:</strong> {{ signal.sellLimit }}</p>
-          <p><strong>Buy Stop:</strong> {{ signal.buyStop }}</p>
-          <p><strong>Sell Stop:</strong> {{ signal.sellStop }}</p>
-          <p><strong>Stop Loss:</strong> {{ signal.stopLoss }}</p>
-          <p><strong>Take Profit:</strong> {{ signal.takeProfit }}</p>
-        </div>
-        <div class="signal-instructions">
-          <p><strong>Instrucciones:</strong> {{ signal.instructions }}</p>
-        </div>
-        <div class="signal-image" *ngIf="signal.image">
-          <img [src]="signal.image" alt="Imagen de señal" />
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </ng-container>
-</div>
-
-<ng-template #noSignals>
-  <ion-card class="no-signal-card">
-    <ion-card-content>
-      <p>No hay señales disponibles</p>
-    </ion-card-content>
-  </ion-card>
-</ng-template>
 
 <ion-fab vertical="bottom" horizontal="end" slot="float" size="small">
   <ion-fab-button (click)="openAddSignalModal()">

@@ -1,1 +1,4 @@
 ion-input[type=password]::-ms-reveal { display: none; }
+ion-item {
+    --min-height: 80px;
+}

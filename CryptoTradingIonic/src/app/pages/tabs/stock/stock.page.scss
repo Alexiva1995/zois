@@ -17,3 +17,8 @@ ion-input{
     flex-direction: column;
     // background-color: var(--ion-color-box);    
   }
+
+  ion-fab {
+    position: absolute;
+    bottom: 4rem;
+  }

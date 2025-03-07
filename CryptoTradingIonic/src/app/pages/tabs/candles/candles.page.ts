@@ -1,5 +1,7 @@
+import { UserService } from 'src/app/core/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { ProfessorService } from 'src/app/services/professor.service';
 
 @Component({
   selector: 'app-candles',
@@ -7,15 +9,76 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./candles.page.scss'],
 })
 export class CandlesPage implements OnInit {
+  signals: any[] = [];
+  professors: any[] = [];
+  isLoading = true;
+  error: string | null = null;
+  professor: any;
+  students: any[] = [];
+  userRole: any;
+  user: any;
 
-  constructor(private menuCtrl: MenuController) { }
+  constructor(
+    private professorService: ProfessorService,
+    private menuCtrl: MenuController,
+    private userService: UserService
+  ) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ionViewWillEnter() {
+    this.getUserName();
+    this.loadDashboardData();
+    this.userService.currentUser.subscribe((user) => {
+      if (user) {
+        this.user = user;
+        this.userRole = user.role;
+      }
+    });
   }
 
-  openmenu(){
-    this.menuCtrl.enable(true,'main-Id');
+  loadDashboardData(filters?: any) {
+    this.isLoading = true;
+
+    if (this.user.role === 'professor') {
+      this.professorService.getProfessorDashboard(filters).subscribe({
+        next: (data: any) => {
+          this.professor = data.professor || null;
+          this.students = data.latestStudents || [];
+          this.signals = data.latestSignals || [];
+          this.isLoading = false;
+        },
+        error: (err: any) => {
+          console.error(err);
+          this.error = 'Error loading dashboard data.';
+          this.isLoading = false;
+        },
+      });
+    }
+
+    if(this.user.role === 'student') {
+      this.professorService.getAll().subscribe({
+        next: (data: any) => {
+          this.professors = data.professors || [];
+          this.isLoading = false;
+        },
+        error: (err: any) => {
+          console.error(err);
+          this.error = 'Error loading dashboard data.';
+          this.isLoading = false;
+        },
+      });
+    }
+  }
+
+  openmenu() {
+    this.menuCtrl.enable(true, 'main-Id');
     this.menuCtrl.open('main-Id');
   }
 
+  getUserName() {
+    this.user = localStorage.getItem('user');
+    this.user = JSON.parse(this.user);
+    this.loadDashboardData();
+  }
 }

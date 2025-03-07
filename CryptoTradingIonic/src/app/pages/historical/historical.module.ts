@@ -15,7 +15,7 @@ import { HistoricalPage } from './historical.page';
     FormsModule,
     IonicModule,
     HistoricalPageRoutingModule,
-    SharedComponentsModule,
+    // SharedComponentsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [HistoricalPage],

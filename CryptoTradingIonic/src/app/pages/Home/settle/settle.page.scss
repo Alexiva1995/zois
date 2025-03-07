@@ -11,3 +11,7 @@ ion-modal#example-modal {
     padding: 25px 20px;
     background-color: var(--ion-color-bg);
   }
+
+  ion-content {
+    background: var(--ion-color-base);
+  }

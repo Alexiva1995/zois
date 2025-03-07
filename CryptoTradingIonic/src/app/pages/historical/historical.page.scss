@@ -1,26 +1,72 @@
-.filters {
-  padding: 1rem;
+.list2 {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  height: 30px;
+  padding-left: 15px;
+  padding-right: 25px;
+}
+
+.txt {
+  width: 25%;
+  display: block;
   text-align: center;
-
-  ion-button {
-    margin: 0.5rem;
-  }
-
-  p {
-    font-size: 1rem;
-    color: var(--ion-color-medium);
-  }
 }
 
-ion-modal {
-  --width: 90%;
-  --height: auto;
-  --border-radius: 10px;
-  --background: var(--ion-background-color);
+.list-item {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
 }
 
-ion-datetime {
-  --background: var(--ion-color-light);
-  --padding-start: 1rem;
-  --padding-end: 1rem;
+.item-icon {
+  height: 49px;
+  width: 49px;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  flex: 1;
+}
+
+.subtext {
+  margin-top: 3px;
+}
+
+.subtext-color {
+  color: var(--ion-color-icon);
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.green-text {
+  color: var(--ion-color-green);
+}
+
+.red-text {
+  color: var(--ion-color-red);
+}
+
+.divider {
+  margin-top: 15px;
+  margin-left: 59px;
+  background-color: #2E3546;
+  height: 1px;
+}
+.market-item {
+  --background: var(--ion-color-back);
+  border-radius: 10px;
+  margin: 5px 0;
+  padding: 0 10px;
+  color: var(--ion-color-icon);
+  font-size: 14px;
+}
+ion-select::part(icon) {
+  display: none !important;
 }
